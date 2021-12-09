@@ -1,16 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPlanes, selectAllPlanes } from './redux/slices/planesSlice';
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const entities = useSelector((state) => state.planes);
+  useEffect(() => {
+    dispatch(fetchPlanes());
+  }, [dispatch]);
+  console.log(entities);
   return (
     <div className="App">
-      <header className="App-header">
+      <p>IHUL: </p>
+      <p>{useSelector((state) => selectAllPlanes(state))}</p>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.js</code>
+          {' '}
+          and save to reload.
         </p>
         <span>
           <span>Learn </span>
@@ -40,7 +54,8 @@ function App() {
           >
             Redux Toolkit
           </a>
-          ,<span> and </span>
+          ,
+          <span> and </span>
           <a
             className="App-link"
             href="https://react-redux.js.org/"
@@ -50,7 +65,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
