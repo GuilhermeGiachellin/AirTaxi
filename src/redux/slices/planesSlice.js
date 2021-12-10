@@ -7,19 +7,18 @@ import {
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-export const planesAdapter = createEntityAdapter({
-  selectId: (plane) => plane.id,
-});
+export const planesAdapter = createEntityAdapter();
 
 const initialState = planesAdapter.getInitialState({ status: 'idle' });
 
-export const logIn = createAsyncThunk('api/login', async () => {
+export const logIn = () => createAsyncThunk('api/login', async () => {
   const { headers: { authorization } } = await axios.post('https://air-taxi.herokuapp.com/users/sign_in', {
     user: {
       email: '12345@gmail.com',
       password: '123456',
     },
   });
+  console.log('LOGIN');
   const cookies = new Cookies();
   cookies.set('MyToken', authorization, { path: '/' });
 });
