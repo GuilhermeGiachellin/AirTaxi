@@ -1,27 +1,21 @@
 /* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../redux/slices/sessionSlice';
 
 const SigUpForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { headers: { authorization } } = await axios.post('https://air-taxi.herokuapp.com/users', {
-      user: {
-        name,
-        email,
-        password,
-        password_confirmation,
-      },
-    });
-    console.log('LOGIN');
-    const cookies = new Cookies();
-    cookies.set('MyToken', authorization, { path: '/' });
+    dispatch(signUp({
+      name, email, password, password_confirmation,
+    }));
   };
 
   return (

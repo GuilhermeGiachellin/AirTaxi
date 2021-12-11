@@ -1,23 +1,21 @@
+/* eslint-disable no-unused-vars */
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+import { logIn } from '../../redux/slices/sessionSlice';
 
 const LogInForm = () => {
+  const status = useSelector((state) => state.sessions.status);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e, email, password);
-    const { headers: { authorization } } = await axios.post('https://air-taxi.herokuapp.com/users/sign_in', {
-      user: {
-        email,
-        password,
-      },
-    });
-    console.log('LOGIN');
-    const cookies = new Cookies();
-    cookies.set('MyToken', authorization, { path: '/' });
+    dispatch(logIn({ email, password }));
   };
 
   return (
@@ -37,8 +35,8 @@ const LogInForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
-        <button type="submit">LogIn</button>
+        { console.log(status) }
+        <button type="submit" disabled={status !== 'idle'}>LogIn</button>
       </form>
     </div>
   );
