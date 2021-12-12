@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../redux/slices/sessionSlice';
 
 const SigUpForm = () => {
@@ -10,12 +11,14 @@ const SigUpForm = () => {
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(signUp({
       name, email, password, password_confirmation,
     }));
+    navigate('/');
   };
 
   return (

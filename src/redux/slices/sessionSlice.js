@@ -27,7 +27,7 @@ export const logIn = createAsyncThunk('api/login', async ({ email, password }) =
   return data;
 });
 
-export const signUp = createAsyncThunk('api/planes', async ({
+export const signUp = createAsyncThunk('api/signUp', async ({
   name, email, password, password_confirmation,
 }) => {
   const response = await axios.post('https://air-taxi.herokuapp.com/users', {
@@ -45,6 +45,16 @@ export const signUp = createAsyncThunk('api/planes', async ({
   return data;
 });
 
+export const logOut = createAsyncThunk('api/logOut', async () => {
+  const cookies = new Cookies();
+  const { data } = await axios.delete('https://air-taxi.herokuapp.com/users/sign_out', {
+    headers: {
+      Authorization: `${cookies.get('MyToken')}`,
+    },
+  });
+  return data;
+});
+
 const sessionSlice = createSlice({
   name: 'sessions',
   initialState: {
@@ -59,10 +69,13 @@ const sessionSlice = createSlice({
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.entities = action.payload;
-        state.status = 'idle';
+        state.status = 'logged';
       })
       .addCase(logIn.rejected, (state) => {
-        state.status = 'idle';
+        state.status = 'error';
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.status = 'out';
       });
   },
 });

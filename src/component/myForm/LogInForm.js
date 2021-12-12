@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +12,12 @@ const LogInForm = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (status === 'logged') {
+      navigate('main');
+    }
+  }, [status]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,8 +41,7 @@ const LogInForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        { console.log(status) }
-        <button type="submit" disabled={status !== 'idle'}>LogIn</button>
+        <button type="submit" disabled={status === 'logged'}>LogIn</button>
       </form>
     </div>
   );
