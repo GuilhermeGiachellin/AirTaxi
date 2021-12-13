@@ -14,7 +14,7 @@ const NavBar = () => {
           <button type="button" onClick={() => dispatch(logOut())}>LogOut</button>
           <Link to="/add">Add new plane</Link>
           <button type="button">Reservation</button>
-          <button type="button">Somthing</button>
+          <Link to="/main">Main page</Link>
         </nav>
       </div>
     </>

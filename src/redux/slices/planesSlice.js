@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-param-reassign */
 import {
   createEntityAdapter,
@@ -21,9 +22,13 @@ export const fetchPlanes = createAsyncThunk('api/planes', async () => {
   return data;
 });
 
-export const createPlane = createAsyncThunk('api/planes', async ({ model, registration }) => {
+export const createPlane = createAsyncThunk('api/planes', async ({
+  model, registration, cruise_speed, description, tour_price,
+}) => {
   const cookie = new Cookies();
-  const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', { model, registration }, {
+  const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', {
+    model, registration, cruise_speed, description, tour_price,
+  }, {
     headers: {
       Authorization: `${cookie.get('MyToken')}`,
     },
