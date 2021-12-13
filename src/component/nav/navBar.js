@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
-import { createPlane } from '../../redux/slices/planesSlice';
 import { logOut } from '../../redux/slices/sessionSlice';
 
 const NavBar = () => {
@@ -12,7 +12,7 @@ const NavBar = () => {
       <div>
         <nav>
           <button type="button" onClick={() => dispatch(logOut())}>LogOut</button>
-          <button type="button" onClick={() => dispatch(createPlane())}>Create</button>
+          <Link to="/add">Add new plane</Link>
           <button type="button">Reservation</button>
           <button type="button">Somthing</button>
         </nav>

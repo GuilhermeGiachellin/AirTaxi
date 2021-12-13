@@ -21,9 +21,9 @@ export const fetchPlanes = createAsyncThunk('api/planes', async () => {
   return data;
 });
 
-export const createPlane = createAsyncThunk('api/planes', async () => {
+export const createPlane = createAsyncThunk('api/planes', async ({ model, registration }) => {
   const cookie = new Cookies();
-  const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', { model: 'F90' }, {
+  const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', { model, registration }, {
     headers: {
       Authorization: `${cookie.get('MyToken')}`,
     },
