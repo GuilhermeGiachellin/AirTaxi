@@ -10,6 +10,7 @@ import SigUpForm from './component/myForm/SignUpForm';
 import MainPage from './component/MainPage';
 import { logOut } from './redux/slices/sessionSlice';
 import { createPlane } from './redux/slices/planesSlice';
+import NavBar from './component/nav/navBar';
 
 function App() {
   const status = useSelector((state) => state.sessions.status);
@@ -28,15 +29,13 @@ function App() {
 
   return (
     <div className="App">
-      <p>IHUL: </p>
+      <NavBar />
       <Routes>
         <Route path="/" element={<LogInForm />} />
         <Route path="/signUp" element={<SigUpForm />} />
         <Route path="/main" element={<MainPage />} />
       </Routes>
       <Link to="/signUp">SignUp</Link>
-      <button type="button" onClick={() => dispatch(logOut())}>LogOut</button>
-      <button type="button" onClick={() => dispatch(createPlane())}>Create</button>
     </div>
   );
 }
