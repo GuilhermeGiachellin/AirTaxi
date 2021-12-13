@@ -12,20 +12,29 @@ export const planesAdapter = createEntityAdapter();
 const initialState = planesAdapter.getInitialState({ status: 'idle' });
 
 export const fetchPlanes = createAsyncThunk('api/planes', async () => {
-  const bolacha = new Cookies();
-  const { data } = await axios.get('https://air-taxi.herokuapp.com/api/v1/users/id/planes', {
+  const cookie = new Cookies();
+  const { data } = await axios.get('https://air-taxi.herokuapp.com/api/v1/planes', {
     headers: {
-      Authorization: `${bolacha.get('MyToken')}`,
+      Authorization: `${cookie.get('MyToken')}`,
     },
   });
-  console.log(data);
+  return data;
+});
+
+export const createPlane = createAsyncThunk('api/planes', async () => {
+  const cookie = new Cookies();
+  const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', { model: 'F90' }, {
+    headers: {
+      Authorization: `${cookie.get('MyToken')}`,
+    },
+  });
   return data;
 });
 
 export const fetchReservations = createAsyncThunk('api/reservations', async () => {
   const bolacha = new Cookies();
   // the id of the plane must be informed, the 1 is just a place holder
-  const response = await axios.get('https://air-taxi.herokuapp.com/api/v1/users/id/planes/1/reservations', {
+  const response = await axios.get('https://air-taxi.herokuapp.com/api/v1/planes/1/reservations', {
     headers: {
       Authorization: `${bolacha.get('MyToken')}`,
     },
