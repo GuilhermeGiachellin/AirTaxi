@@ -19,21 +19,20 @@ export const fetchReservations = createAsyncThunk('api/reservations', async (id)
       Authorization: `${cookie.get('MyToken')}`,
     },
   });
-  console.log(reservationAdapter);
   return data;
 });
 
-export const createReservations = createAsyncThunk('api/reservations', async (id) => {
+export const createReservations = createAsyncThunk('api/createReservations', async ({ id, value }) => {
   const cookie = new Cookies();
-  const res = await axios.post(`https://air-taxi.herokuapp.com/api/v1/planes/${id}/reservations`, {
-    reserve_date: '11/01/1939',
+  console.log(value);
+  const { data } = await axios.post(`https://air-taxi.herokuapp.com/api/v1/planes/${id}/reservations`, {
+    reserve_date: value,
   }, {
     headers: {
       Authorization: `${cookie.get('MyToken')}`,
     },
   });
-  console.log(res);
-  return res;
+  return data;
 });
 
 const reservationsSlice = createSlice({
@@ -49,6 +48,16 @@ const reservationsSlice = createSlice({
         state.status = 'success';
       })
       .addCase(fetchReservations.rejected, (state) => {
+        state.status = 'idle';
+      })
+      .addCase(createReservations.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(createReservations.fulfilled, (state) => {
+        state.status = 'created';
+        console.log(state.status);
+      })
+      .addCase(createReservations.rejected, (state) => {
         state.status = 'idle';
       });
   },

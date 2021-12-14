@@ -14,6 +14,7 @@ const Plane = ({ params }) => {
         <p>{params.model}</p>
         <p>{params.registration}</p>
         <Link to={`reservations/${params.id}`}>See reservations</Link>
+        <Link to={`plane/${params.id}`}>See Plane details</Link>
       </div>
     </>
   );

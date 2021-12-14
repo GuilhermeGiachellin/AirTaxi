@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlanes } from '../redux/slices/planesSlice';
 import Plane from './plane/plane';
 
-const MainPage = () => {
+const PlaneManager = () => {
   const dispatch = useDispatch();
   const { entities } = useSelector((state) => state.planes);
 
@@ -25,4 +25,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default PlaneManager;
