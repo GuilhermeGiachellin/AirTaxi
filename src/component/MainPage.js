@@ -11,7 +11,7 @@ const MainPage = () => {
   const { entities } = useSelector((state) => state.planes);
 
   const showPlanes = (list) => Object.entries(list).map((plane) => (
-    <Plane params={plane[1]} />
+    <Plane key={plane[1].id} params={plane[1]} />
   ));
 
   useEffect(() => {
@@ -19,8 +19,7 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      { console.log(entities) }
+    <div className="plane_cnt">
       { showPlanes(entities) }
     </div>
   );

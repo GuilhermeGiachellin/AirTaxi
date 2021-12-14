@@ -36,17 +36,6 @@ export const createPlane = createAsyncThunk('api/planes', async ({
   return data;
 });
 
-export const fetchReservations = createAsyncThunk('api/reservations', async () => {
-  const bolacha = new Cookies();
-  // the id of the plane must be informed, the 1 is just a place holder
-  const response = await axios.get('https://air-taxi.herokuapp.com/api/v1/planes/1/reservations', {
-    headers: {
-      Authorization: `${bolacha.get('MyToken')}`,
-    },
-  });
-  console.log(response);
-});
-
 const planesSlice = createSlice({
   name: 'planes',
   initialState,

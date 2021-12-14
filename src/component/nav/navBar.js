@@ -1,20 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/slices/sessionSlice';
+import styles from '../../assets/navBar.module.css';
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
   return (
     <>
-      <div>
+      <div className={styles.nav_cnt}>
         <nav>
-          <button type="button" onClick={() => dispatch(logOut())}>LogOut</button>
+          <Link to="/" onClick={() => dispatch(logOut())}>LogOut</Link>
           <Link to="/add">Add new plane</Link>
-          <button type="button">Reservation</button>
-          <Link to="/main">Main page</Link>
+          <Link to="/reservations">Reservations</Link>
+          <Link to="/main">Planes page</Link>
         </nav>
       </div>
     </>
