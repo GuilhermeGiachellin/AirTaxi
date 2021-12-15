@@ -6,6 +6,7 @@ import {
   ErrorMessage, Field, Form, Formik,
 } from 'formik';
 import { createPlane } from '../../redux/slices/planesSlice';
+import { CreatePlaneSchema } from '../lib/schema';
 // import style from '../../assets/Forms.module.css';
 
 const CreatePlaneForm = () => {
@@ -17,6 +18,7 @@ const CreatePlaneForm = () => {
       initialValues={{
         model: '', registration: '', cruise_speed: '', tour_price: '', description: '', image: '',
       }}
+      validationSchema={CreatePlaneSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);

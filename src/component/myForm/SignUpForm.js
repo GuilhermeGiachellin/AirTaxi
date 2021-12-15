@@ -9,27 +9,17 @@ import {
 import { isValue } from 'react-calendar/dist/umd/shared/propTypes';
 import { signUp } from '../../redux/slices/sessionSlice';
 import style from '../../assets/Forms.module.css';
+import { SignUpSchema } from '../lib/schema';
 
 const SigUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   return (
     <Formik
       initialValues={{
         name: '', email: '', password: '', passwordConfirmation: '',
       }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      validationSchema={SignUpSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);

@@ -6,6 +6,7 @@ import {
   ErrorMessage, Field, Form, Formik,
 } from 'formik';
 import { logIn } from '../../redux/slices/sessionSlice';
+import { SignInSchema } from '../lib/schema';
 import style from '../../assets/Forms.module.css';
 
 const LogInForm = () => {
@@ -17,17 +18,7 @@ const LogInForm = () => {
       initialValues={{
         email: '', password: '',
       }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      validationSchema={SignInSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);
