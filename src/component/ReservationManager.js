@@ -7,6 +7,8 @@ import {
   createReservations, fetchReservations, selectAllReservations, selectReservationById,
 } from '../redux/slices/reservationsSlice';
 import Reservation from './reservation/reservation';
+import style from '../assets/reservation.module.css';
+import 'react-calendar/dist/Calendar.css';
 
 const ReservationManager = () => {
   const [value, onChange] = useState(new Date());
@@ -22,37 +24,26 @@ const ReservationManager = () => {
   };
 
   useEffect(() => {
-    console.log('Reservation Created1');
     dispatch(fetchReservations(id));
   }, [dispatch]);
 
   useEffect(() => {
     if (status === 'created') {
-      console.log('Reservation Created2');
       dispatch(fetchReservations(id));
     }
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={style.cnt}>
       <p>RESERVAS</p>
-      <p>
-        Date:
-        {' '}
-        { status }
-        <ul>
-          {entities.map((res) => (
-            <Reservation key={res.id} data={res} />
-          ))}
-        </ul>
-        <div>
-          <Calendar
-            onChange={onChange}
-            value={value}
-          />
-        </div>
-        <button type="button" onClick={() => handleSubmit()}>CREATE RESERVE</button>
-      </p>
+      <div>
+        <Calendar
+          onChange={onChange}
+          value={value}
+        />
+      </div>
+      <button type="button" onClick={() => handleSubmit()}>CREATE RESERVE</button>
+
     </div>
   );
 };

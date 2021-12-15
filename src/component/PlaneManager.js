@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlanes } from '../redux/slices/planesSlice';
+import NavBar from './nav/navBar';
 import Plane from './plane/plane';
 
 const PlaneManager = () => {
@@ -19,9 +20,13 @@ const PlaneManager = () => {
   }, [dispatch]);
 
   return (
-    <div className="plane_cnt">
-      { showPlanes(entities) }
-    </div>
+    <>
+      <NavBar />
+      <div className="plane_cnt">
+        {showPlanes(entities)}
+      </div>
+
+    </>
   );
 };
 

@@ -27,11 +27,11 @@ code {
     monospace;
 }
 
-.root {
+/* .root {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
+} */
 
 ul {
   list-style: none;

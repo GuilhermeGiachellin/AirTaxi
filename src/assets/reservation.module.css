@@ -1,0 +1,11 @@
+.cnt {
+    background-image: url('./images/aircraft.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.react-calendar {
+    background-color: black;
+}

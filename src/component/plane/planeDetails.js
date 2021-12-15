@@ -2,12 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectPlaneById } from '../../redux/slices/planesSlice';
+import NavBar from '../nav/navBar';
 
 const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
   return (
     <div>
+      <NavBar />
       <ul>
         <li>
           <h3>

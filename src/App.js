@@ -25,7 +25,6 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <NavBar />
       <Routes>
         <Route path="/" element={<LogInForm />} />
         <Route path="/signUp" element={<SigUpForm />} />
