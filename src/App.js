@@ -4,7 +4,7 @@ import {
   Routes, Route, Link, useNavigate,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './assets/navBar.module.css';
+import styles from './assets/app.module.css';
 import LogInForm from './component/myForm/LogInForm';
 import SigUpForm from './component/myForm/SignUpForm';
 import MainPage from './component/PlaneManager';
@@ -24,7 +24,7 @@ function App() {
   }, [status]);
 
   return (
-    <div className={styles.App}>
+    <div className={styles.app}>
       <NavBar />
       <Routes>
         <Route path="/" element={<LogInForm />} />
@@ -34,7 +34,6 @@ function App() {
         <Route path="main/reservations/:id" element={<Reservation />} />
         <Route path="main/plane/:id" element={<PlaneDetails />} />
       </Routes>
-      <Link to="/signUp">SignUp</Link>
     </div>
   );
 }

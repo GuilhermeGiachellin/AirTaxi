@@ -8,8 +8,36 @@ const PlaneDetails = () => {
   const entities = useSelector((state) => selectPlaneById(state, id));
   return (
     <div>
-      { console.log(entities) }
-      PLANE DETAILS PAGE
+      <ul>
+        <li>
+          <h3>
+            Model:
+            {' '}
+            {entities.model}
+          </h3>
+        </li>
+        <li>
+          <h3>
+            Registration:
+            {' '}
+            {entities.registration}
+          </h3>
+        </li>
+        <li>
+          <h3>
+            Cruise speed:
+            {' '}
+            {entities.cruise_speed}
+          </h3>
+        </li>
+        <li>
+          <h3>
+            Tour Price:
+            {' '}
+            {entities.tour_price}
+          </h3>
+        </li>
+      </ul>
     </div>
   );
 };

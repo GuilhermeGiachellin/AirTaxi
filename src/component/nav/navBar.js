@@ -7,16 +7,17 @@ import styles from '../../assets/navBar.module.css';
 const NavBar = () => {
   const dispatch = useDispatch();
   return (
-    <>
-      <div className={styles.nav_cnt}>
-        <nav>
-          <Link to="/" onClick={() => dispatch(logOut())}>LogOut</Link>
-          <Link to="/add">Add new plane</Link>
-          <Link to="/reservations">Reservations</Link>
-          <Link to="/main">Planes page</Link>
-        </nav>
-      </div>
-    </>
+
+    <div className={styles.nav_cnt}>
+      <h1>LOGO</h1>
+      <nav className={styles.nav_list}>
+        <Link to="/main" className={styles.nav_link}>PLANES</Link>
+        <Link to="/add" className={styles.nav_link}>ADD PLANE</Link>
+        <Link to="/" onClick={() => dispatch(logOut())} className={styles.nav_link}>SIGN OUT</Link>
+        <Link to="/signUp" className={styles.nav_link}>SIGN UP</Link>
+      </nav>
+    </div>
+
   );
 };
 

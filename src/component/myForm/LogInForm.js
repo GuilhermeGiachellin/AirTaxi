@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logIn } from '../../redux/slices/sessionSlice';
+import style from '../../assets/Forms.module.css';
 
 const LogInForm = () => {
   const status = useSelector((state) => state.sessions.status);
@@ -25,14 +24,15 @@ const LogInForm = () => {
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <div className={style.cnt}>
+      <form onSubmit={handleSubmit} className={style.form}>
         <input
           type="email"
           value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           required
+          className={style.input}
         />
         <input
           type="password"
@@ -40,8 +40,9 @@ const LogInForm = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           required
+          className={style.input}
         />
-        <button type="submit" disabled={status === 'logged'}>LogIn</button>
+        <button type="submit" disabled={status === 'logged'} className={style.button}>LogIn</button>
       </form>
     </div>
   );

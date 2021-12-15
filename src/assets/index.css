@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
 }
 
 code {
@@ -30,4 +31,8 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+ul {
+  list-style: none;
 }

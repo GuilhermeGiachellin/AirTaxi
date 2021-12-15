@@ -22,10 +22,8 @@ const ReservationManager = () => {
   };
 
   useEffect(() => {
-    // if (status === 'created' || status === 'idle') {
     console.log('Reservation Created1');
     dispatch(fetchReservations(id));
-    // }
   }, [dispatch]);
 
   useEffect(() => {

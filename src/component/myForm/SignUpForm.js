@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signUp } from '../../redux/slices/sessionSlice';
+import style from '../../assets/Forms.module.css';
 
 const SigUpForm = () => {
   const [name, setName] = useState('');
@@ -22,14 +23,15 @@ const SigUpForm = () => {
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
+    <div className={style.cnt}>
+      <form onSubmit={handleSubmit} className={style.form}>
         <input
           type="name"
           value={name}
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
           required
+          className={style.input}
         />
         <input
           type="email"
@@ -37,6 +39,7 @@ const SigUpForm = () => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           required
+          className={style.input}
         />
         <input
           type="password"
@@ -44,6 +47,7 @@ const SigUpForm = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           required
+          className={style.input}
         />
         <input
           type="password"
@@ -51,8 +55,9 @@ const SigUpForm = () => {
           placeholder="Password Confirmation"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           required
+          className={style.input}
         />
-        <button type="submit">SignUpe</button>
+        <button type="submit" className={style.button}>SignUpe</button>
       </form>
     </div>
   );
