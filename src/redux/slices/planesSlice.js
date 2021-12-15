@@ -23,11 +23,11 @@ export const fetchPlanes = createAsyncThunk('api/planes', async () => {
 });
 
 export const createPlane = createAsyncThunk('api/planes', async ({
-  model, registration, cruise_speed, description, tour_price,
+  model, registration, cruise_speed, description, tour_price, image,
 }) => {
   const cookie = new Cookies();
   const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', {
-    model, registration, cruise_speed, description, tour_price,
+    model, registration, cruise_speed, description, tour_price, image,
   }, {
     headers: {
       Authorization: `${cookie.get('MyToken')}`,
