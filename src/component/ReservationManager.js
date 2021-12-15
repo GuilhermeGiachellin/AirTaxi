@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import { ImArrowLeft } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import {
   createReservations, fetchReservations, selectAllReservations, selectReservationById,
@@ -35,15 +37,23 @@ const ReservationManager = () => {
 
   return (
     <div className={style.cnt}>
-      <p>RESERVAS</p>
-      <div>
-        <Calendar
-          onChange={onChange}
-          value={value}
-        />
+      <div className={style.filter}>
+        <div className={style.content_cnt}>
+          <Link to="/main"><ImArrowLeft className={style.icon} /></Link>
+          <p>BOOK YOUR PLANE</p>
+          <hr className={style.line} />
+          <p>There is always a plane that fit your needs!</p>
+          <p>
+            Choose a date to book your plane. Keep in mind that the plane
+            is going to be in your service for 24 hours
+          </p>
+          <Calendar
+            onChange={onChange}
+            value={value}
+          />
+          <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
+        </div>
       </div>
-      <button type="button" onClick={() => handleSubmit()}>CREATE RESERVE</button>
-
     </div>
   );
 };
