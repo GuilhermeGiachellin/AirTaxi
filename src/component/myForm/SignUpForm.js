@@ -11,7 +11,7 @@ import { signUp } from '../../redux/slices/sessionSlice';
 import style from '../../assets/Forms.module.css';
 import { SignUpSchema } from '../lib/schema';
 
-const SigUpForm = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
@@ -47,4 +47,4 @@ const SigUpForm = () => {
   );
 };
 
-export default SigUpForm;
+export default SignUpForm;

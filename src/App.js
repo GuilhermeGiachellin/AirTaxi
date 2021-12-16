@@ -11,6 +11,7 @@ import MainPage from './component/PlaneManager';
 import CreatePlaneForm from './component/myForm/CreatePlaneForm';
 import Reservation from './component/ReservationManager';
 import PlaneDetails from './component/plane/planeDetails';
+import Login from './component/pages/Login';
 
 function App() {
   const status = useSelector((state) => state.sessions.status);
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Routes>
-        <Route path="/" element={<LogInForm />} />
+        <Route path="/" element={<Login />} />
         <Route path="/signUp" element={<SigUpForm />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/add" element={<CreatePlaneForm />} />

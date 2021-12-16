@@ -1,3 +1,11 @@
+:root {
+  --color1: #ffb400;
+  --color2: #97bf0a;
+  --disabled-grey: #efefef;
+  --main-font: #131313;
+  --second-font: #c8c8c8;
+}
+
 body {
   margin: 0;
   font-family:
