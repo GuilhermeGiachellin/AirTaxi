@@ -4,18 +4,16 @@ import {
   Routes, Route, Link, useNavigate,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
+import styles from './assets/app.module.css';
 import LogInForm from './component/myForm/LogInForm';
 import SigUpForm from './component/myForm/SignUpForm';
-import MainPage from './component/MainPage';
-import { logOut } from './redux/slices/sessionSlice';
-import { createPlane } from './redux/slices/planesSlice';
-import NavBar from './component/nav/navBar';
+import MainPage from './component/PlaneManager';
 import CreatePlaneForm from './component/myForm/CreatePlaneForm';
+import Reservation from './component/ReservationManager';
+import PlaneDetails from './component/plane/planeDetails';
 
 function App() {
   const status = useSelector((state) => state.sessions.status);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,20 +22,16 @@ function App() {
     }
   }, [status]);
 
-  const obj = {
-    model: 'F90',
-  };
-
   return (
-    <div className="App">
-      <NavBar />
+    <div className={styles.app}>
       <Routes>
         <Route path="/" element={<LogInForm />} />
         <Route path="/signUp" element={<SigUpForm />} />
         <Route path="/main" element={<MainPage />} />
         <Route path="/add" element={<CreatePlaneForm />} />
+        <Route path="main/reservations/:id" element={<Reservation />} />
+        <Route path="main/plane/:id" element={<PlaneDetails />} />
       </Routes>
-      <Link to="/signUp">SignUp</Link>
     </div>
   );
 }

@@ -14,7 +14,7 @@ import Cookies from 'universal-cookie';
 // const initialState = sessionAdapter.getInitialState({ status: 'idle' });
 
 export const logIn = createAsyncThunk('api/login', async ({ email, password }) => {
-  const response = await axios.post('https://air-taxi.herokuapp.com/users/sign_in', {
+  const response = await axios.post('https://air-taxi.herokuapp.com/api/login', {
     user: {
       email,
       password,
@@ -30,7 +30,7 @@ export const logIn = createAsyncThunk('api/login', async ({ email, password }) =
 export const signUp = createAsyncThunk('api/signUp', async ({
   name, email, password, password_confirmation,
 }) => {
-  const response = await axios.post('https://air-taxi.herokuapp.com/users', {
+  const response = await axios.post('https://air-taxi.herokuapp.com/api/signup', {
     user: {
       name,
       email,
@@ -47,7 +47,7 @@ export const signUp = createAsyncThunk('api/signUp', async ({
 
 export const logOut = createAsyncThunk('api/logOut', async () => {
   const cookies = new Cookies();
-  const { data } = await axios.delete('https://air-taxi.herokuapp.com/users/sign_out', {
+  const { data } = await axios.delete('https://air-taxi.herokuapp.com/api/logout', {
     headers: {
       Authorization: `${cookies.get('MyToken')}`,
     },
@@ -79,9 +79,5 @@ const sessionSlice = createSlice({
       });
   },
 });
-
-// export const {
-//   selectById: selectSessionById,
-// } = sessionAdapter.getSelectors((state) => state.sessions);
 
 export default sessionSlice.reducer;

@@ -3,58 +3,47 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import {
+  ErrorMessage, Field, Form, Formik,
+} from 'formik';
+import { isValue } from 'react-calendar/dist/umd/shared/propTypes';
 import { signUp } from '../../redux/slices/sessionSlice';
+import style from '../../assets/Forms.module.css';
+import { SignUpSchema } from '../lib/schema';
 
 const SigUpForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [password_confirmation, setPasswordConfirmation] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    dispatch(signUp({
-      name, email, password, password_confirmation,
-    }));
-    navigate('/');
-  };
-
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="name"
-          value={name}
-          placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          value={password_confirmation}
-          placeholder="Password Confirmation"
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          required
-        />
-        <button type="submit">SignUpe</button>
-      </form>
-    </div>
+    <Formik
+      initialValues={{
+        name: '', email: '', password: '', passwordConfirmation: '',
+      }}
+      validationSchema={SignUpSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          setSubmitting(false);
+          dispatch(signUp(values));
+          navigate('/');
+        }, 400);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Field type="text" name="name" placeholder="Name" />
+          <ErrorMessage name="name" component="div" />
+          <Field type="email" name="email" placeholder="Email" />
+          <ErrorMessage name="email" component="div" />
+          <Field type="password" name="password" placeholder="Password" />
+          <ErrorMessage name="password" component="div" />
+          <Field type="password" name="passwordConfirmation" placeholder="Password Confirmation" />
+          <ErrorMessage name="passwordConfirmation" component="div" />
+          <button type="submit" disabled={isSubmitting}>
+            Sign Up
+          </button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

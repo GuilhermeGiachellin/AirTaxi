@@ -1,66 +1,57 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import {
+  ErrorMessage, Field, Form, Formik,
+} from 'formik';
 import { createPlane } from '../../redux/slices/planesSlice';
+import { CreatePlaneSchema } from '../lib/schema';
+import NavBar from '../nav/navBar';
+// import style from '../../assets/Forms.module.css';
 
 const CreatePlaneForm = () => {
-  const [model, setModel] = useState('');
-  const [registration, setRegistration] = useState('');
-  const [speed, setSpeed] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    dispatch(createPlane({
-      model, registration, speed, description, price,
-    }));
-    navigate('/main');
-  };
-
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={model}
-          placeholder="Model"
-          onChange={(e) => setModel(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={registration}
-          placeholder="Registration"
-          onChange={(e) => setRegistration(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={speed}
-          placeholder="Cruze Speed"
-          onChange={(e) => setSpeed(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={price}
-          placeholder="Tour Price"
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          value={description}
-          placeholder="Description"
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
-        <button type="submit">Add a new plane</button>
-      </form>
-    </div>
+    <>
+      <NavBar />
+      <Formik
+        initialValues={{
+          model: '', registration: '', cruise_speed: '', tour_price: '', description: '', image: '',
+        }}
+        validationSchema={CreatePlaneSchema}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            dispatch(createPlane(values));
+            navigate('/main');
+          }, 400);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <Field type="text" name="model" placeholder="Model" />
+            <ErrorMessage name="model" component="div" />
+            <Field type="text" name="registration" placeholder="Registration" />
+            <ErrorMessage name="registration" component="div" />
+            <Field type="text" name="cruise_speed" placeholder="Cruise speed" />
+            <ErrorMessage name="cruise_speed" component="div" />
+            <Field type="text" name="tour_price" placeholder="Tour Price" />
+            <ErrorMessage name="tour_price" component="div" />
+            <Field type="text" name="description" placeholder="Plane description" />
+            <ErrorMessage name="description" component="div" />
+            <Field type="text" name="image" placeholder="Image url" />
+            <ErrorMessage name="image" component="div" />
+            <button type="submit" disabled={isSubmitting}>
+              Add plane
+            </button>
+          </Form>
+        )}
+      </Formik>
+
+    </>
   );
 };
 

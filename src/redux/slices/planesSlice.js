@@ -23,28 +23,17 @@ export const fetchPlanes = createAsyncThunk('api/planes', async () => {
 });
 
 export const createPlane = createAsyncThunk('api/planes', async ({
-  model, registration, cruise_speed, description, tour_price,
+  model, registration, cruise_speed, description, tour_price, image,
 }) => {
   const cookie = new Cookies();
   const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', {
-    model, registration, cruise_speed, description, tour_price,
+    model, registration, cruise_speed, description, tour_price, image,
   }, {
     headers: {
       Authorization: `${cookie.get('MyToken')}`,
     },
   });
   return data;
-});
-
-export const fetchReservations = createAsyncThunk('api/reservations', async () => {
-  const bolacha = new Cookies();
-  // the id of the plane must be informed, the 1 is just a place holder
-  const response = await axios.get('https://air-taxi.herokuapp.com/api/v1/planes/1/reservations', {
-    headers: {
-      Authorization: `${bolacha.get('MyToken')}`,
-    },
-  });
-  console.log(response);
 });
 
 const planesSlice = createSlice({
