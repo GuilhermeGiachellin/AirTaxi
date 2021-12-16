@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import {
-  createReservations, fetchReservations, selectAllReservations, selectReservationById,
+  createReservations, fetchReservations, selectAllReservations,
 } from '../redux/slices/reservationsSlice';
 import Reservation from './reservation/reservation';
 import style from '../assets/reservation.module.css';
@@ -29,23 +29,25 @@ const ReservationManager = () => {
     dispatch(fetchReservations(id));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (status === 'created') {
-      dispatch(fetchReservations(id));
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   if (status === 'created') {
+  //     dispatch(fetchReservations(id));
+  //   }
+  // }, [dispatch]);
 
   return (
     <div className={style.cnt}>
       <div className={style.filter}>
         <div className={style.content_cnt}>
-          <Link to="/main"><ImArrowLeft className={style.icon} /></Link>
-          <p>BOOK YOUR PLANE</p>
+          <Link to="/main"><ImArrowLeft className={style.icon} size={30} /></Link>
+          <h2 className={style.title}>BOOK YOUR PLANE</h2>
           <hr className={style.line} />
-          <p>There is always a plane that fit your needs!</p>
-          <p>
-            Choose a date to book your plane. Keep in mind that the plane
-            is going to be in your service for 24 hours
+          <p>{console.log(entities)}</p>
+          <p className={style.description}>
+            Choose a date to book your plane that you selected.
+            Keep in mind that the plane with all included services are
+            disponible for for 24 hours. You can meet the crew in your
+            local airport ready for the service.
           </p>
           <Calendar
             onChange={onChange}

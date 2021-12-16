@@ -8,7 +8,6 @@ import styles from './assets/app.module.css';
 import LogInForm from './component/myForm/LogInForm';
 import SigUpForm from './component/myForm/SignUpForm';
 import MainPage from './component/PlaneManager';
-import NavBar from './component/nav/navBar';
 import CreatePlaneForm from './component/myForm/CreatePlaneForm';
 import Reservation from './component/ReservationManager';
 import PlaneDetails from './component/plane/planeDetails';

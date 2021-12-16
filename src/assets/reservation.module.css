@@ -3,8 +3,7 @@
     background-position: center;    
     background-size: cover;
     width: 100%;
-    height: 100vh;    
-    /* color: white; */
+    height: 100vh;     
 }
 
 .filter {
@@ -44,15 +43,24 @@ button:hover {
 
 .line {
     width: 60%;
+    border: 0.5px solid white;
+    margin: 1vh 0;
 }
 
 .icon {
     color: white;
     position: absolute;
-    top: 10px;
-    left: 10px;    
+    top: 20px;
+    left: 20px;    
 }
 
-.icon > path {
-    width: 80px;
+.description {
+    color: white;
+    text-align: center;
+    width: 50%;
+    margin: 0 0 4vh 0;
+}
+
+.title {
+    color: white;
 }
