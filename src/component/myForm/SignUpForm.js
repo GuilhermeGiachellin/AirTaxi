@@ -18,9 +18,7 @@ const SignUpForm = () => {
       }}
       validationSchema={SignUpSchema}
       onSubmit={(values, { setSubmitting }) => {
-        console.log('HELO TIMEOUT 1');
         setTimeout(() => {
-          console.log('HELO TIMEOUT');
           setSubmitting(false);
           dispatch(signUp(values));
           navigate('/main');
