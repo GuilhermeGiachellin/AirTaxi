@@ -41,8 +41,9 @@ const Login = () => {
             { toggle === 'login' && (
             <motion.div
               key={1}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
+              initial={{ opacity: 0, x: '-200px' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ scale: 0, x: '200px' }}
             >
               <LogInForm />
             </motion.div>
@@ -50,8 +51,9 @@ const Login = () => {
             { toggle === 'signup' && (
             <motion.div
               key={2}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0 }}
+              initial={{ opacity: 0, x: '-200px' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ scale: 0, x: '200px' }}
             >
               <SignUpForm />
             </motion.div>
