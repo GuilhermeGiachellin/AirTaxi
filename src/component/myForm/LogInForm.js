@@ -6,6 +6,7 @@ import {
 } from 'formik';
 import { logIn } from '../../redux/slices/sessionSlice';
 import { SignInSchema } from '../lib/schema';
+import styles from './form.module.scss';
 
 const LogInForm = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ const LogInForm = () => {
         }}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <Field type="email" name="email" placeholder="Email" />
+          <Form className={styles.myForm}>
+            <Field type="email" name="email" placeholder="Email" autoComplete="off" />
             <ErrorMessage name="email" component="div" />
             <Field type="password" name="password" placeholder="Password" />
             <ErrorMessage name="password" component="div" />

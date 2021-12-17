@@ -8,10 +8,10 @@ import styles from './pages.module.scss';
 
 const menuState = {
   intro: {
-    goto: 'Login',
+    goto: 'Already have an account?',
   },
   login: {
-    goto: 'Signup',
+    goto: 'Create account!',
   },
   signup: {
     goto: 'Back',
@@ -35,7 +35,7 @@ const Login = () => {
           layout
         >
           <motion.div layout>
-            <h1> HELO HELO HELO I AM A TITLE </h1>
+            <h1 style={{ fontFamily: 'Righteous', color: 'white', fontSize: '3rem' }}> AIR TAXI </h1>
           </motion.div>
           <AnimatePresence exitBeforeEnter>
             { toggle === 'login' && (
@@ -57,8 +57,9 @@ const Login = () => {
             </motion.div>
             )}
           </AnimatePresence>
+          <motion.button className={styles.selectionBtn} type="button" onClick={() => setToggle()}>{menuState[toggle].goto}</motion.button>
         </motion.div>
-        <motion.button className={styles.selectionBtn} type="button" onClick={() => setToggle()}>{menuState[toggle].goto}</motion.button>
+
       </AnimateSharedLayout>
     </section>
   );
