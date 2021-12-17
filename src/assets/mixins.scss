@@ -1,0 +1,8 @@
+@mixin green-btn {
+  background-color: var(--color2);
+  color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.171);
+  border-radius: 25px;
+  border: none;
+  padding: 0.5rem 2rem;
+}

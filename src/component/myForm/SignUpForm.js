@@ -10,8 +10,9 @@ import { isValue } from 'react-calendar/dist/umd/shared/propTypes';
 import { signUp } from '../../redux/slices/sessionSlice';
 import style from '../../assets/Forms.module.css';
 import { SignUpSchema } from '../lib/schema';
+import styles from './form.module.scss';
 
-const SigUpForm = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
@@ -29,7 +30,7 @@ const SigUpForm = () => {
       }}
     >
       {({ isSubmitting }) => (
-        <Form>
+        <Form className={styles.myForm}>
           <Field type="text" name="name" placeholder="Name" />
           <ErrorMessage name="name" component="div" />
           <Field type="email" name="email" placeholder="Email" />
@@ -47,4 +48,4 @@ const SigUpForm = () => {
   );
 };
 
-export default SigUpForm;
+export default SignUpForm;
