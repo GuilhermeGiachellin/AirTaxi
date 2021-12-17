@@ -1,10 +1,6 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlanes } from '../redux/slices/planesSlice';
-import NavBar from './nav/navBar';
 import Plane from './plane/plane';
 
 const PlaneManager = () => {
@@ -21,7 +17,6 @@ const PlaneManager = () => {
 
   return (
     <>
-      <NavBar />
       <div className="plane_cnt">
         {showPlanes(entities)}
       </div>
