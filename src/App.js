@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './assets/app.module.css';
 import LogInForm from './component/myForm/LogInForm';
 import SigUpForm from './component/myForm/SignUpForm';
-import MainPage from './component/PlaneManager';
 import CreatePlaneForm from './component/myForm/CreatePlaneForm';
 import Reservation from './component/ReservationManager';
 import PlaneDetails from './component/plane/planeDetails';
 import Login from './component/pages/Login';
+import MainView from './component/pages/MainView';
 
 function App() {
   const status = useSelector((state) => state.sessions.status);
@@ -27,8 +27,7 @@ function App() {
     <div className={styles.app}>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/signUp" element={<SigUpForm />} />
-        <Route path="/main" element={<MainPage />} />
+        <Route path="/main" element={<MainView />} />
         <Route path="/add" element={<CreatePlaneForm />} />
         <Route path="main/reservations/:id" element={<Reservation />} />
         <Route path="main/plane/:id" element={<PlaneDetails />} />
