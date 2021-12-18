@@ -9,7 +9,7 @@ const NavBar = () => {
   return (
 
     <div className={styles.mainContainer}>
-      <h1>LOGO</h1>
+      <h1> AIR TAXI </h1>
       <nav className={styles.itemList}>
         <Link to="/main" className={styles.nav_link}>PLANES</Link>
         <Link to="/add" className={styles.nav_link}>ADD PLANE</Link>
