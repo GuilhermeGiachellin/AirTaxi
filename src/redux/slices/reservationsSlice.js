@@ -55,7 +55,6 @@ const reservationsSlice = createSlice({
       })
       .addCase(createReservations.fulfilled, (state) => {
         state.status = 'created';
-        console.log(state.status);
       })
       .addCase(createReservations.rejected, (state) => {
         state.status = 'idle';
