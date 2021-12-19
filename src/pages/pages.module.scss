@@ -1,11 +1,12 @@
-@import "../../assets/mixins.scss";
+@import "../assets/mixins.scss";
 
 .loginMainContainer {
-  background: radial-gradient(ellipse at center, #FFB400 0%, #c98c00 100%);
+  background: radial-gradient(ellipse at center, #ffb400 0%, #c98c00 100%);
   height: 100vh;
 
   .selectionBtn {
     @include green-btn;
+
     font-size: 2rem;
     padding: 1rem 3rem;
   }

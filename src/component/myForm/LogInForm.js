@@ -1,5 +1,6 @@
-import { useDispatch } from 'react-redux';
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ErrorMessage, Field, Form, Formik,
@@ -11,6 +12,13 @@ import styles from './form.module.scss';
 const LogInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.sessions);
+
+  useEffect(() => {
+    if (status === 'logged') {
+      navigate('/main');
+    }
+  }, [status]);
 
   return (
     <>
@@ -19,12 +27,8 @@ const LogInForm = () => {
           email: '', password: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            dispatch(logIn(values));
-            navigate('/main');
-          }, 400);
+        onSubmit={async (values) => {
+          await dispatch(logIn(values));
         }}
       >
         {({ isSubmitting }) => (

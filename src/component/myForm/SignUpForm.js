@@ -1,14 +1,10 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   ErrorMessage, Field, Form, Formik,
 } from 'formik';
-import { isValue } from 'react-calendar/dist/umd/shared/propTypes';
 import { signUp } from '../../redux/slices/sessionSlice';
-import style from '../../assets/Forms.module.css';
 import { SignUpSchema } from '../lib/schema';
 import styles from './form.module.scss';
 
@@ -25,7 +21,7 @@ const SignUpForm = () => {
         setTimeout(() => {
           setSubmitting(false);
           dispatch(signUp(values));
-          navigate('/');
+          navigate('/main');
         }, 400);
       }}
     >

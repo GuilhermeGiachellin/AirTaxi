@@ -2,8 +2,8 @@ import {
   AnimatePresence, AnimateSharedLayout, motion, useCycle,
 } from 'framer-motion';
 import React from 'react';
-import LogInForm from '../myForm/LogInForm';
-import SignUpForm from '../myForm/SignUpForm';
+import LoginInForm from '../component/myForm/LogInForm';
+import SignUpForm from '../component/myForm/SignUpForm';
 import styles from './pages.module.scss';
 
 const menuState = {
@@ -45,7 +45,7 @@ const Login = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ scale: 0, x: '200px' }}
             >
-              <LogInForm />
+              <LoginInForm />
             </motion.div>
             )}
             { toggle === 'signup' && (

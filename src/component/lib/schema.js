@@ -13,7 +13,7 @@ const SignUpSchema = Yup.object().shape({
   password: Yup.string()
     .required('No password provided.')
     .min(6, 'Password is to short - should be 6 char minimun'),
-  password_confirmation: Yup.string()
+  passwordConfirmation: Yup.string()
     .required('No password provided.')
     .min(6, 'Password is to short - should be 6 char minimun'),
 });

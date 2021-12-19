@@ -29,12 +29,6 @@ const ReservationManager = () => {
     dispatch(fetchReservations(id));
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (status === 'created') {
-  //     dispatch(fetchReservations(id));
-  //   }
-  // }, [dispatch]);
-
   return (
     <div className={style.cnt}>
       <div className={style.filter}>
@@ -42,7 +36,6 @@ const ReservationManager = () => {
           <Link to="/main"><ImArrowLeft className={style.icon} size={30} /></Link>
           <h2 className={style.title}>BOOK YOUR PLANE</h2>
           <hr className={style.line} />
-          <p>{console.log(entities)}</p>
           <p className={style.description}>
             Choose a date to book your plane that you selected.
             Keep in mind that the plane with all included services are
