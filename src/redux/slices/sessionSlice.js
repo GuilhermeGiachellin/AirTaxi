@@ -7,11 +7,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
-
-// export const sessionAdapter = createEntityAdapter();
-
-// const initialState = sessionAdapter.getInitialState({ status: 'idle' });
+import { getAuthorizationCookie, setAuthorizationCookie } from '../../component/lib/CookieManager';
 
 export const logIn = createAsyncThunk('api/login', async ({ email, password }) => {
   const response = await axios.post('https://air-taxi.herokuapp.com/api/login', {
@@ -20,10 +16,9 @@ export const logIn = createAsyncThunk('api/login', async ({ email, password }) =
       password,
     },
   });
-  const cookies = new Cookies();
   const { data } = response;
   const { headers: { authorization } } = response;
-  cookies.set('MyToken', authorization, { path: '/' });
+  setAuthorizationCookie('MyToken', authorization);
   return data;
 });
 
@@ -38,18 +33,17 @@ export const signUp = createAsyncThunk('api/signUp', async ({
       password_confirmation,
     },
   });
-  const cookies = new Cookies();
   const { data } = response;
   const { headers: { authorization } } = response;
-  cookies.set('MyToken', authorization, { path: '/' });
+  setAuthorizationCookie('MyToken', authorization);
   return data;
 });
 
 export const logOut = createAsyncThunk('api/logOut', async () => {
-  const cookies = new Cookies();
+  const authCookie = getAuthorizationCookie('MyToken');
   const { data } = await axios.delete('https://air-taxi.herokuapp.com/api/logout', {
     headers: {
-      Authorization: `${cookies.get('MyToken')}`,
+      Authorization: `${authCookie}`,
     },
   });
   return data;
