@@ -35,11 +35,15 @@ const Gallery = ({ itemList }) => {
 
   return (
     <div className={styles.mainContainer}>
-      <button className={styles.roundedBtn} type="button" onClick={() => handleDir(-1)}>
+      <motion.button
+        className={styles.roundedBtn}
+        type="button"
+        onClick={() => handleDir(-1)}
+      >
         {' '}
         <BiLeftArrow style={{ color: 'white', fontSize: '1.5rem' }} />
         {' '}
-      </button>
+      </motion.button>
       <div className={styles.header}>
         <h2> Availible planes </h2>
         <p> Please pick a model </p>
@@ -72,11 +76,16 @@ const Gallery = ({ itemList }) => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <button className={styles.roundedBtn} style={{ rotate: '180deg' }} type="button" onClick={() => handleDir(1)}>
+      <motion.button
+        className={styles.roundedBtn}
+        style={{ rotate: '180deg' }}
+        type="button"
+        onClick={() => handleDir(1)}
+      >
         {' '}
         <BiLeftArrow style={{ color: 'white', fontSize: '1.5rem' }} />
         {' '}
-      </button>
+      </motion.button>
     </div>
   );
 };
