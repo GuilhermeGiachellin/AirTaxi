@@ -27,8 +27,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/main" element={<MainView />} />
         <Route path="/add" element={<CreatePlaneForm />} />
-        <Route path="main/reservations/:id" element={<Reservation />} />
-        <Route path="main/plane/:id/reservations/:id" element={<PlaneDetails />} />
+        <Route path="main/plane/:id/reservations/:id" element={<Reservation />} />
+        <Route path="main/plane/:id" element={<PlaneDetails />} />
       </Routes>
     </div>
   );
