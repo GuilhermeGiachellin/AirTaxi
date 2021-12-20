@@ -1,8 +1,10 @@
 import React from 'react';
+import { BiLeftArrow } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { selectPlaneById } from '../../redux/slices/planesSlice';
 import NavBar from '../nav/navBar';
+import style from './planeDetails.module.css';
 
 const PlaneDetails = () => {
   const { id } = useParams();
