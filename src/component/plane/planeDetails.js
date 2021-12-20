@@ -53,7 +53,7 @@ const PlaneDetails = () => {
               <p>{entities.description}</p>
             </li>
           </ul>
-          <Link to={`reservations/${id}`}>Reserve</Link>
+          <Link to={`reservations/${id}`} className={style.button}>Reserve</Link>
         </div>
       </div>
     </>

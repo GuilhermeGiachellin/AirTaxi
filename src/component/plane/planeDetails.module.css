@@ -48,3 +48,11 @@
   width: 5vw;
   margin-bottom: 5vh;
 }
+.button {
+    text-decoration: none;
+    background: #97bf0f;
+    color: white;
+    padding: 5% 10%;
+    border-radius: 50px;
+    margin: auto;
+}
