@@ -11,7 +11,7 @@ const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
   const navigate = useNavigate();
-  const icon = <IoIosArrowDropright size={25} />;
+  const icon = <IoIosArrowDropright className={style.icon_right} size={25} />;
 
   const handleNavigation = () => {
     navigate(`reservations/${id}`);
@@ -25,7 +25,7 @@ const PlaneDetails = () => {
           <img className={style.image} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg/1200px-Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg" alt="plane" />
           <Link to="/main" className={style.link}>
             <div className={style.icon_container}>
-              <BiLeftArrow className={style.icon} size={25} />
+              <BiLeftArrow className={style.icon_left} size={25} />
             </div>
           </Link>
         </div>

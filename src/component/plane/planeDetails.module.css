@@ -51,7 +51,7 @@
   border-radius: 0 50px 50px 0;
 }
 
-.icon {
+.icon_left {
   margin-right: 20%;
   color: white;
 }
@@ -63,13 +63,17 @@
 }
 
 .button {
-    display: flex;  
+  display: flex;  
   background: #97bf0f;
   color: white;
-  padding: 10px 50px;
+  padding: 10px 25px;
   align-items: center;
   border: none;
   border-radius: 50px;
   margin: auto;
+}
+
+.icon_right {
+    margin-left: 10px;
 }
 
