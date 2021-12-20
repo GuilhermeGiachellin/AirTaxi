@@ -9,7 +9,7 @@ import style from './planeDetails.module.css';
 const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
-
+  console.log('hola');
   return (
     <>
       <NavBar />
