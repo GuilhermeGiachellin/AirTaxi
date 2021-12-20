@@ -1,7 +1,8 @@
 import React from 'react';
 import { BiLeftArrow } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { IoIosArrowDropright } from 'react-icons/io';
 import { selectPlaneById } from '../../redux/slices/planesSlice';
 import NavBar from '../nav/navBar';
 import style from './planeDetails.module.css';
@@ -9,6 +10,13 @@ import style from './planeDetails.module.css';
 const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
+  const navigate = useNavigate();
+  const icon = <IoIosArrowDropright size={25} />;
+
+  const handleNavigation = () => {
+    navigate(`reservations/${id}`);
+  };
+
   return (
     <>
       <NavBar />
@@ -53,7 +61,10 @@ const PlaneDetails = () => {
               <p>{entities.description}</p>
             </li>
           </ul>
-          <Link to={`reservations/${id}`} className={style.button}>Reserve</Link>
+          <button type="button" onClick={handleNavigation} className={style.button}>
+            Reserve
+            {icon}
+          </button>
         </div>
       </div>
     </>
