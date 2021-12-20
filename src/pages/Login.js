@@ -20,6 +20,7 @@ const menuState = {
 
 const Login = () => {
   const [toggle, setToggle] = useCycle('intro', 'login', 'signup');
+
   return (
     <section
       className={styles.loginMainContainer}
@@ -59,7 +60,13 @@ const Login = () => {
             </motion.div>
             )}
           </AnimatePresence>
-          <motion.button className={styles.selectionBtn} type="button" onClick={() => setToggle()}>{menuState[toggle].goto}</motion.button>
+          <motion.button
+            className={styles.selectionBtn}
+            type="button"
+            onClick={() => setToggle()}
+          >
+            {menuState[toggle].goto}
+          </motion.button>
         </motion.div>
 
       </AnimateSharedLayout>
