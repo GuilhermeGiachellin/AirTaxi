@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { ImArrowLeft } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import {
   createReservations, fetchReservations, selectAllReservations,
@@ -37,7 +38,7 @@ const ReservationManager = () => {
     }
   };
 
-  mark.has();
+  const getDate = (dates) => new Set(dates.map((date) => date.reserve_date));
 
   useEffect(() => {
     dispatch(fetchReservations(id));
@@ -47,6 +48,7 @@ const ReservationManager = () => {
     <div className={style.cnt}>
       <div className={style.filter}>
         <div className={style.content_cnt}>
+          {console.log(status)}
           <button type="button" onClick={handleNavigation} className={style.icon}>{icon}</button>
           <h2 className={style.title}>BOOK YOUR PLANE</h2>
           <hr className={style.line} />
@@ -59,10 +61,12 @@ const ReservationManager = () => {
           <Calendar
             onChange={onChange}
             value={value}
-            tileClassName={({ date, view }) => {
-              console.log(date);
-              // console.log(mark.has(date));
-              return 'red';
+            tileDisabled={({ date }) => {
+              const temp = date.toISOString().slice(0, 10);
+              if (getDate(dates).has(temp)) {
+                return true;
+              }
+              return false;
             }}
           />
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
