@@ -37,13 +37,13 @@ const PlaneDetails = () => {
               </h1>
             </li>
             <li className={style.list}>
-              <p>
-                Registration:
+              <p className={style.list_category}>
+                Registration
               </p>
               <p>{entities.registration}</p>
             </li>
             <li className={style.list}>
-              <p>Cruise speed: </p>
+              <p className={style.list_category}>Cruise speed </p>
               <p>
                 {entities.cruise_speed}
                 {' '}
@@ -51,13 +51,14 @@ const PlaneDetails = () => {
               </p>
             </li>
             <li className={style.list}>
-              <p>Tour Price: </p>
+              <p className={style.list_category}>Tour Price </p>
               <p>
                 $
                 {entities.tour_price}
               </p>
             </li>
             <li className={style.list}>
+              <p className={style.list_category}>Description </p>
               <p>{entities.description}</p>
             </li>
           </ul>
