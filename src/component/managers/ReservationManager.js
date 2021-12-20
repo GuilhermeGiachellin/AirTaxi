@@ -7,16 +7,22 @@ import { Link, useParams } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import {
   createReservations, fetchReservations, selectAllReservations,
-} from '../redux/slices/reservationsSlice';
-import Reservation from './reservation/reservation';
-import style from '../assets/reservation.module.css';
+} from '../../redux/slices/reservationsSlice';
+import style from './reservation.module.css';
 import 'react-calendar/dist/Calendar.css';
+import './calendar.css';
+
+const mark = new Set([
+  '2021-12-23',
+  '2021-12-21',
+  '2021-12-20',
+]);
 
 const ReservationManager = () => {
   const [value, onChange] = useState(new Date());
   const dispatch = useDispatch();
   const { id } = useParams();
-  const entities = useSelector((state) => selectAllReservations(state));
+  const dates = useSelector((state) => selectAllReservations(state));
   const status = useSelector((state) => state.reservations.status);
 
   const handleSubmit = async () => {
@@ -24,6 +30,8 @@ const ReservationManager = () => {
       dispatch(createReservations({ id, value }));
     }
   };
+
+  mark.has();
 
   useEffect(() => {
     dispatch(fetchReservations(id));
@@ -45,6 +53,11 @@ const ReservationManager = () => {
           <Calendar
             onChange={onChange}
             value={value}
+            tileClassName={({ date, view }) => {
+              console.log(date);
+              // console.log(mark.has(date));
+              return 'red';
+            }}
           />
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
         </div>

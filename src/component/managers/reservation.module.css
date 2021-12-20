@@ -1,5 +1,5 @@
-.cnt {
-  background-image: url('./images/aircraft.jpg');
+.mainContainer {
+  background-image: url('../../assets/images/aircraft.jpg');
   background-position: center;
   background-size: cover;
   width: 100%;
