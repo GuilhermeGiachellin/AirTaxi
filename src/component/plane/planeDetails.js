@@ -10,10 +10,6 @@ const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
 
-  const PlaneDetails = () => {
-  const { id } = useParams();
-  const entities = useSelector((state) => selectPlaneById(state, id));    
-  
   return (
     <>
       <NavBar />
