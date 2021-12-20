@@ -12,12 +12,7 @@ import {
 import style from './reservation.module.css';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
-
-const mark = new Set([
-  '2021-12-23',
-  '2021-12-21',
-  '2021-12-20',
-]);
+import Reservation from '../reservation/reservation';
 
 const ReservationManager = () => {
   const [value, onChange] = useState(new Date());
@@ -45,7 +40,7 @@ const ReservationManager = () => {
   }, [dispatch]);
 
   return (
-    <div className={style.cnt}>
+    <div className={style.container}>
       <div className={style.filter}>
         <div className={style.content_cnt}>
           {console.log(status)}
@@ -69,6 +64,9 @@ const ReservationManager = () => {
               return false;
             }}
           />
+          {dates.map((res) => (
+            <Reservation key={res.id} data={res} />
+          ))}
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
         </div>
       </div>

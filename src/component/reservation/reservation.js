@@ -4,7 +4,7 @@ import React from 'react';
 
 const Reservation = ({ data }) => (
   <div>
-    {data.reserve_date}
+    {console.log(data)}
   </div>
 );
 
