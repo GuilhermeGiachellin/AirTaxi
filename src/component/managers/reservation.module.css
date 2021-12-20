@@ -48,10 +48,19 @@ button:hover {
 }
 
 .icon {
-  color: white;
+  background: none;
+  border: none;
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+svg {
+  color: white;
+}
+
+.icon:hover {
+  background: none;
 }
 
 .description {
