@@ -14,7 +14,7 @@
     align-items: center;
     height: 500px;
     gap: 1rem;
-  
+
     input {
       border-radius: 25px 10px 25px 10px;
       border: none;
@@ -22,10 +22,10 @@
       padding: 1rem;
       font-size: 1rem;
     }
-  
+
     button {
       @include green-btn;
-  
+
       color: white;
       font-size: 1rem;
     }
