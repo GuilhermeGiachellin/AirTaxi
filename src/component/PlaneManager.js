@@ -23,7 +23,6 @@ const PlaneManager = () => {
 
   return (
     <>
-      {/* {console.log(groupIn(3, entities))} */}
       {entities.length > 0 && (
         <Gallery itemList={groupIn(3, entities)} />
       )}

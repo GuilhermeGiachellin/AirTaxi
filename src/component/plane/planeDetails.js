@@ -1,7 +1,8 @@
 import React from 'react';
 import { BiLeftArrow } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { IoIosArrowDropright } from 'react-icons/io';
 import { selectPlaneById } from '../../redux/slices/planesSlice';
 import NavBar from '../nav/navBar';
 import style from './planeDetails.module.css';
@@ -9,6 +10,13 @@ import style from './planeDetails.module.css';
 const PlaneDetails = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectPlaneById(state, id));
+  const navigate = useNavigate();
+  const icon = <IoIosArrowDropright className={style.icon_right} size={25} />;
+
+  const handleNavigation = () => {
+    navigate(`reservations/${id}`);
+  };
+
   return (
     <>
       <NavBar />
@@ -17,7 +25,7 @@ const PlaneDetails = () => {
           <img className={style.image} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg/1200px-Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg" alt="plane" />
           <Link to="/main" className={style.link}>
             <div className={style.icon_container}>
-              <BiLeftArrow className={style.icon} size={25} />
+              <BiLeftArrow className={style.icon_left} size={25} />
             </div>
           </Link>
         </div>
@@ -29,13 +37,13 @@ const PlaneDetails = () => {
               </h1>
             </li>
             <li className={style.list}>
-              <p>
-                Registration:
+              <p className={style.list_category}>
+                Registration
               </p>
               <p>{entities.registration}</p>
             </li>
             <li className={style.list}>
-              <p>Cruise speed: </p>
+              <p className={style.list_category}>Cruise speed </p>
               <p>
                 {entities.cruise_speed}
                 {' '}
@@ -43,17 +51,21 @@ const PlaneDetails = () => {
               </p>
             </li>
             <li className={style.list}>
-              <p>Tour Price: </p>
+              <p className={style.list_category}>Tour Price </p>
               <p>
                 $
                 {entities.tour_price}
               </p>
             </li>
             <li className={style.list}>
+              <p className={style.list_category}>Description </p>
               <p>{entities.description}</p>
             </li>
           </ul>
-          <Link to={`reservations/${id}`}>Reserve</Link>
+          <button type="button" onClick={handleNavigation} className={style.button}>
+            Reserve
+            {icon}
+          </button>
         </div>
       </div>
     </>
