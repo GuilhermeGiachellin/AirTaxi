@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { ImArrowLeft } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import {
   createReservations, fetchReservations, selectAllReservations,
@@ -18,6 +18,12 @@ const ReservationManager = () => {
   const { id } = useParams();
   const entities = useSelector((state) => selectAllReservations(state));
   const status = useSelector((state) => state.reservations.status);
+  const navigate = useNavigate();
+  const icon = <ImArrowLeft size={30} />;
+
+  const handleNavigation = () => {
+    navigate(`/main/plane/${id}`);
+  };
 
   const handleSubmit = async () => {
     if (value !== null) {
@@ -33,7 +39,7 @@ const ReservationManager = () => {
     <div className={style.cnt}>
       <div className={style.filter}>
         <div className={style.content_cnt}>
-          <Link to="/main"><ImArrowLeft className={style.icon} size={30} /></Link>
+          <button type="button" onClick={handleNavigation} className={style.icon}>{icon}</button>
           <h2 className={style.title}>BOOK YOUR PLANE</h2>
           <hr className={style.line} />
           <p className={style.description}>
