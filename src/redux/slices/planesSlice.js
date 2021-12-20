@@ -6,17 +6,17 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+import { getAuthorizationCookie } from '../../component/lib/CookieManager';
 
 export const planesAdapter = createEntityAdapter();
 
 const initialState = planesAdapter.getInitialState({ status: 'idle' });
 
 export const fetchPlanes = createAsyncThunk('api/planes', async () => {
-  const cookie = new Cookies();
+  const authCookie = getAuthorizationCookie('MyToken');
   const { data } = await axios.get('https://air-taxi.herokuapp.com/api/v1/planes', {
     headers: {
-      Authorization: `${cookie.get('MyToken')}`,
+      Authorization: `${authCookie}`,
     },
   });
   return data;
@@ -25,12 +25,12 @@ export const fetchPlanes = createAsyncThunk('api/planes', async () => {
 export const createPlane = createAsyncThunk('api/planes', async ({
   model, registration, cruise_speed, description, tour_price, image,
 }) => {
-  const cookie = new Cookies();
+  const authCookie = getAuthorizationCookie('MyToken');
   const { data } = await axios.post('https://air-taxi.herokuapp.com/api/v1/planes', {
     model, registration, cruise_speed, description, tour_price, image,
   }, {
     headers: {
-      Authorization: `${cookie.get('MyToken')}`,
+      Authorization: `${authCookie}`,
     },
   });
   return data;
