@@ -1,5 +1,5 @@
 import React from 'react';
-import PlaneManager from '../component/PlaneManager';
+import PlaneManager from '../component/managers/PlaneManager';
 import NavBar from '../component/nav/navBar';
 
 const MainView = () => (

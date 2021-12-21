@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPlanes, selectAllPlanes, selectPlaneEntitites } from '../redux/slices/planesSlice';
-import Gallery from './gallery/Gallery';
-import Plane from './plane/plane';
+import { fetchPlanes, selectAllPlanes } from '../../redux/slices/planesSlice';
+import Gallery from '../gallery/Gallery';
+import Plane from '../plane/plane';
 
 const PlaneManager = () => {
   const dispatch = useDispatch();

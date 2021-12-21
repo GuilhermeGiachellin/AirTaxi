@@ -6,7 +6,7 @@ import {
 import { useSelector } from 'react-redux';
 import styles from './assets/app.module.css';
 import CreatePlaneForm from './component/myForm/CreatePlaneForm';
-import Reservation from './component/ReservationManager';
+import Reservation from './component/managers/ReservationManager';
 import PlaneDetails from './component/plane/planeDetails';
 import Login from './pages/Login';
 import MainView from './pages/MainView';

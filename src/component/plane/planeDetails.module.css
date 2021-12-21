@@ -63,7 +63,7 @@
 }
 
 .button {
-  display: flex;  
+  display: flex;
   background: #97bf0f;
   color: white;
   padding: 10px 25px;
@@ -74,9 +74,9 @@
 }
 
 .icon_right {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .list_category {
-    margin-right: 15%;
+  margin-right: 15%;
 }
