@@ -5,4 +5,25 @@
   border-radius: 25px;
   border: none;
   padding: 0.5rem 2rem;
+
+  &:hover {
+    background-color: #719109;
+    color: white;
+    transition: 0.2s;
+  }
+}
+
+@mixin white-btn {
+  background-color: white;
+  color: var(--color2);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.171);
+  border-radius: 25px;
+  border: none;
+  padding: 0.5rem 2rem;
+
+  &:hover {
+    background-color: var(--color2);
+    color: white;
+    transition: 0.2s;
+  }
 }
