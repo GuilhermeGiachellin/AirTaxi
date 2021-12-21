@@ -37,7 +37,11 @@ export const createReservations = createAsyncThunk('api/createReservations', asy
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.status = 'idle';
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchReservations.pending, (state) => {
@@ -70,3 +74,4 @@ export const {
 } = reservationAdapter.getSelectors((state) => state.reservations);
 
 export default reservationsSlice.reducer;
+export const { reset } = reservationsSlice.actions;
