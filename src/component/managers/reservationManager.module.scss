@@ -1,3 +1,5 @@
+@import '../../assets/mixins.scss';
+
 .container {
   background-image: url('../../assets/images/aircraft.jpg');
   background-position: center;
@@ -19,19 +21,10 @@
       height: 100vh;
 
       .button {
-        background-color: white;
-        color: #97bf0f;
-        border-style: none;
-        border-radius: 40px;
-        padding: 15px 50px;
-        font-weight: bolder;
-        margin-top: 3vh;
-      }
+        @include white-btn;
 
-      button:hover {
-        background-color: #97bf0f;
-        color: white;
-        transition: 1s;
+        font-size: 1rem;
+        margin: 0.5em;
       }
 
       .react-calendar {

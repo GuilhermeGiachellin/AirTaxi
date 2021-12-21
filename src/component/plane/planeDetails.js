@@ -22,7 +22,7 @@ const PlaneDetails = () => {
       <NavBar />
       <div className={style.container}>
         <div className={style.image_container}>
-          <img className={style.image} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg/1200px-Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg" alt="plane" />
+          <img className={style.image} src={entities.picture} alt="plane" />
           <Link to="/main" className={style.link}>
             <div className={style.icon_container}>
               <BiLeftArrow className={style.icon_left} size={25} />

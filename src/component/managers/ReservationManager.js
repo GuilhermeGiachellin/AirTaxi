@@ -15,6 +15,7 @@ import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 import Reservation from '../reservation/reservation';
 import useToggle from '../customHooks/useToggle';
+import PopUp from '../popups/PopUp';
 
 const ReservationManager = () => {
   const [value, onChange] = useState(new Date());
@@ -22,12 +23,12 @@ const ReservationManager = () => {
   const { id } = useParams();
   const dates = useSelector((state) => selectAllReservations(state));
   const { status } = useSelector((state) => state.reservations);
-  const [toggle, setToggle] = useToggle(['open', 'close']);
+  const [toggle, setToggle] = useToggle(['close', 'open']);
   const navigate = useNavigate();
   const icon = <ImArrowLeft size={30} />;
 
   const handleNavigation = () => {
-    navigate(`/main/plane/${id}`);
+    navigate('/main');
   };
 
   const handleSubmit = async () => {
@@ -43,7 +44,6 @@ const ReservationManager = () => {
   };
 
   const handleReset = () => {
-    console.log('entro');
     dispatch(reset());
     navigate('/main');
   };
@@ -66,20 +66,25 @@ const ReservationManager = () => {
             local airport ready for the service.
           </p>
           <AnimateSharedLayout>
-            <motion.div style={{ display: 'flex', gap: '2rem' }}>
-              <motion.div layout>
-                <Calendar
-                  onChange={onChange}
-                  value={value}
-                  tileDisabled={({ date }) => {
-                    const temp = date.toISOString().slice(0, 10);
-                    if (getDate(dates).has(temp)) {
-                      return true;
-                    }
-                    return false;
-                  }}
-                />
-              </motion.div>
+            <motion.div style={{
+              display: 'flex', gap: '2rem', alignItems: 'center', height: '400',
+            }}
+            >
+              { dates.length > 0 && (
+                <motion.div layout>
+                  <Calendar
+                    onChange={onChange}
+                    value={value}
+                    tileDisabled={({ date }) => {
+                      const temp = date.toISOString().slice(0, 10);
+                      if (getDate(dates).has(temp)) {
+                        return true;
+                      }
+                      return false;
+                    }}
+                  />
+                </motion.div>
+              )}
               { toggle === 'open' && (
               <motion.div
                 className={style.dates}
@@ -101,18 +106,10 @@ const ReservationManager = () => {
           <button type="button" onClick={() => showReservations()} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
-          <div style={{
-            position: 'absolute', width: '100vw', height: '100vh', backgroundColor: 'rgba(0, 0, 0, 0.397)', display: 'flex', justifyContent: 'center', alignItems: 'center',
-          }}
-          >
-            <div style={{
-              width: '50%', height: '50%', position: 'realtive', backgroundColor: 'black',
-            }}
-            >
-              <p style={{ color: 'white' }}>Reservation Confirmed</p>
-            </div>
-            <button type="button" onClick={() => handleReset()}>Go to main</button>
-          </div>
+            <PopUp handleInput={handleReset} message="Date Reserved!" skip={false} />
+          )}
+          { status === 'error' && (
+            <PopUp handleInput={handleReset} message="Date already reserved! :C" skip />
           )}
         </div>
       </div>

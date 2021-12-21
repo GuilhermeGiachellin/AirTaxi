@@ -47,7 +47,7 @@ const reservationsSlice = createSlice({
       .addCase(fetchReservations.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchReservations.fulfilled, reservationAdapter.upsertMany, (state) => {
+      .addCase(fetchReservations.fulfilled, reservationAdapter.setAll, (state) => {
         state.status = 'success';
       })
       .addCase(fetchReservations.rejected, (state) => {
@@ -60,7 +60,7 @@ const reservationsSlice = createSlice({
         state.status = 'created';
       })
       .addCase(createReservations.rejected, (state) => {
-        state.status = 'idle';
+        state.status = 'error';
       });
   },
 });

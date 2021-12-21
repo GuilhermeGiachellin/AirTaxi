@@ -10,7 +10,7 @@ const Plane = ({ params }) => {
     <>
       <div>
         <div>
-          <img className={styles.plane_img} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg/1200px-Messerschmitt_Bf_109E_at_Thunder_Over_Michigan.jpg" alt="plane" />
+          <img className={styles.plane_img} src={params.picture} alt="plane" />
         </div>
         <p>{params.model}</p>
         <p>{params.registration}</p>

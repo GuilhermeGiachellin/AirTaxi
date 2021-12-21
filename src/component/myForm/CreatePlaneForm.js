@@ -24,7 +24,7 @@ const CreatePlaneForm = () => {
         <h2 style={{ color: 'white', fontSize: '3rem' }}>Provide plane details</h2>
         <Formik
           initialValues={{
-            model: '', registration: '', cruise_speed: '', tour_price: '', description: '', image: '',
+            model: '', registration: '', cruise_speed: '', tour_price: '', description: '', picture: '',
           }}
           validationSchema={CreatePlaneSchema}
           onSubmit={(values, { setSubmitting }) => {
@@ -47,8 +47,8 @@ const CreatePlaneForm = () => {
               <ErrorMessage name="tour_price" component="div" />
               <Field type="text" name="description" placeholder="Plane description" />
               <ErrorMessage name="description" component="div" />
-              <Field type="text" name="image" placeholder="Image url" />
-              <ErrorMessage name="image" component="div" />
+              <Field type="text" name="picture" placeholder="Image url" />
+              <ErrorMessage name="picture" component="div" />
               <button type="submit" disabled={isSubmitting}>
                 Add plane
               </button>
