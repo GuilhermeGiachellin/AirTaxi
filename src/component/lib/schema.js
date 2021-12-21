@@ -24,7 +24,7 @@ const CreatePlaneSchema = Yup.object().shape({
   description: Yup.string().required('Description is required'),
   cruise_speed: Yup.number().required('Cruise speed is required'),
   tour_price: Yup.number().required('Price is required'),
-  image: Yup.string().url().required('Image is required'),
+  picture: Yup.string().url().required('Image is required'),
 });
 
 export { SignInSchema, SignUpSchema, CreatePlaneSchema };
