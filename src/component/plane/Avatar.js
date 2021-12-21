@@ -3,12 +3,12 @@ import React from 'react';
 import { RiFacebookCircleLine, RiInstagramLine } from 'react-icons/ri';
 import { TiSocialTwitterCircular } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
-import planeImage from '../../assets/images/aircraft.jpg';
+import styles from './avatar.module.scss';
 
 const Avatar = ({ details }) => (
-  <div style={{ width: '250px', height: '250px' }}>
+  <div className={styles.mainContainer}>
     <Link style={{ width: 'inherit', display: 'block' }} to={`plane/${details.id}`}>
-      <img style={{ width: 'inherit' }} src={planeImage} alt="plane" />
+      <img style={{ width: 'inherit' }} src={details.picture} alt="plane" />
     </Link>
     <div style={{
       display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
