@@ -1,0 +1,17 @@
+
+.list {
+    background-color: white;
+    padding: 1rem 4rem;
+  }
+  
+  .list:nth-child(even) {
+    background-color: #e2e3e5;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px; 
+  }
