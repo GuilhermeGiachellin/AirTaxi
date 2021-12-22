@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { IoIosArrowDropright } from 'react-icons/io';
 import { selectPlaneById } from '../../redux/slices/planesSlice';
-import NavBar from '../nav/navBar';
-import style from './planeDetails.module.css';
+import style from './planeDetails.module.scss';
 
 const PlaneDetails = () => {
   const { id } = useParams();
@@ -19,15 +18,14 @@ const PlaneDetails = () => {
 
   return (
     <>
-      <NavBar />
       <div className={style.container}>
+        <Link to="/main" className={style.link}>
+          <div className={style.icon_container}>
+            <BiLeftArrow className={style.icon_left} size={25} />
+          </div>
+        </Link>
         <div className={style.image_container}>
           <img className={style.image} src={entities.picture} alt="plane" />
-          <Link to="/main" className={style.link}>
-            <div className={style.icon_container}>
-              <BiLeftArrow className={style.icon_left} size={25} />
-            </div>
-          </Link>
         </div>
         <div className={style.list_container}>
           <ul className={style.ul}>
@@ -63,8 +61,10 @@ const PlaneDetails = () => {
             </li>
           </ul>
           <button type="button" onClick={handleNavigation} className={style.button}>
-            Reserve
-            {icon}
+            <div>
+              Reserve
+              {icon}
+            </div>
           </button>
         </div>
       </div>

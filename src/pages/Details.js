@@ -1,15 +1,15 @@
 import React from 'react';
-import PlaneManager from '../component/managers/PlaneManager';
 import NavBar from '../component/nav/navBar';
+import PlaneDetails from '../component/plane/planeDetails';
 import Layout from '../component/wrapper/Layout';
 
-const MainView = () => (
+const Details = () => (
   <Layout preAnimation="fadeIn">
     <div style={{ display: 'flex', flexDirection: 'row', width: '100vw' }}>
       <NavBar />
-      <PlaneManager />
+      <PlaneDetails />
     </div>
   </Layout>
 );
 
-export default MainView;
+export default Details;
