@@ -32,7 +32,7 @@
 - GitHub: [@GuilhermeGiachellin](https://github.com/GuilhermeGiachellin)
 - LinkedIn: [GuilhermeGiachellin](https://www.linkedin.com/in/guilherme-giachellin-2599771b9/)
 
-👤 **Ricardo R.*
+👤 **Ricardo R.**
 
 - GitHub: [@Richie9000](https://github.com/Richie9000)
 
