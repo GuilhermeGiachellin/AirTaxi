@@ -13,7 +13,7 @@ import {
 import style from './reservationManager.module.scss';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
-import Reservation from '../reservation/reservation';
+import ReservationList from '../reservation/ReservationList';
 import useToggle from '../customHooks/useToggle';
 import PopUp from '../popups/PopUp';
 
@@ -95,7 +95,7 @@ const ReservationManager = () => {
               >
                 <ul>
                   {dates.map((res) => (
-                    <Reservation key={res.id} data={res} />
+                    <ReservationList key={res.id} data={res} />
                   ))}
                 </ul>
               </motion.div>
