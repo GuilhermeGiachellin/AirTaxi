@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sanpshoot of the Reservation page renders correctly 1`] = `
+Array [
+  <main
+    style={
+      Object {
+        "opacity": 0,
+        "transform": "none",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "width": "100vw",
+        }
+      }
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="filter"
+        >
+          <div
+            className="content_cnt"
+          >
+            <button
+              className="icon"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                fill="currentColor"
+                height={30}
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                version="1.1"
+                viewBox="0 0 16 16"
+                width={30}
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.5 8l7.5 7.5v-4.5h8v-6h-8v-4.5z"
+                />
+              </svg>
+            </button>
+            <h2
+              className="title"
+            >
+              BOOK YOUR PLANE
+            </h2>
+            <hr
+              className="line"
+            />
+            <p
+              className="description"
+            >
+              Choose a date to book your plane that you selected. Keep in mind that the plane with all included services are disponible for for 24 hours. You can meet the crew in your local airport ready for the service.
+            </p>
+            <div
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "gap": "2rem",
+                  "height": "400",
+                }
+              }
+            />
+            <button
+              className="button"
+              onClick={[Function]}
+              type="button"
+            >
+              Reserved dates
+            </button>
+            <button
+              className="button"
+              onClick={[Function]}
+              type="button"
+            >
+              Book now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>,
+  ",",
+]
+`;
