@@ -1,6 +1,6 @@
 @import '../../assets/mixins.scss';
 
-.mainContainer{
+.mainContainer {
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -29,6 +29,7 @@
 
     button {
       @include green-btn();
+
       font-size: 2rem;
     }
   }
