@@ -7,7 +7,7 @@
 ## Image Preview
 
 ![image](https://user-images.githubusercontent.com/81584449/147021555-9aa688bb-1934-464e-8ed8-10e40aa6c28e.png)
-![image](https://user-images.githubusercontent.com/81584449/147021761-2d7943a5-30ff-4b50-a7b1-b66ad26e8492.png)
+![image](https://user-images.githubusercontent.com/81584449/147294248-649baa90-086c-4f5b-8649-14070cde631e.png)
 ![image](https://user-images.githubusercontent.com/81584449/147021873-b0c22b74-94d9-4008-a383-86d555191b13.png)
 ![image](https://user-images.githubusercontent.com/81584449/147021916-0de9ab6a-acea-4b51-85f2-4ad896cd67ff.png)
 
