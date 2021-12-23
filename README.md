@@ -13,6 +13,11 @@
 
 ## See the live version [here](https://elegant-swanson-8d214d.netlify.app/)!
 
+## Kanban board
+
+- Image of the [first version](https://drive.google.com/file/d/1-7mtAwarsD5WbbemNnF-jjAsNsQwuwm7/view?usp=sharing).
+- Link to the project [roadmap](https://github.com/GuilhermeGiachellin/AirTaxi/projects/1).
+
 ## Built With
 
 - React
@@ -31,7 +36,7 @@
 
 - Here is the RoR [repo](https://github.com/gabrielyea/air-taxi-api) to the API.
 
-## Author
+## Authors(3)
 
 👤 **Gabriel Rendon**
 
@@ -43,9 +48,10 @@
 - GitHub: [@GuilhermeGiachellin](https://github.com/GuilhermeGiachellin)
 - LinkedIn: [GuilhermeGiachellin](https://www.linkedin.com/in/guilherme-giachellin-2599771b9/)
 
-👤 **Ricardo R.**
+👤 **Ricardo Rod**
 
 - GitHub: [@Richie9000](https://github.com/Richie9000)
+- LinkedIn: [Ricardo Rod](https://www.linkedin.com/in/ricardorodr/)
 
 ## 🤝 Contributing
 
