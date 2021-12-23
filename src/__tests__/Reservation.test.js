@@ -41,7 +41,7 @@ describe('Test Reservation', () => {
   });
 });
 
-describe('Sanpshoot of the Reservation page', () => {
+describe('Snapshoot of the Reservation page', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
       <BrowserRouter>

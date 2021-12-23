@@ -19,7 +19,7 @@ describe('Test Renders', () => {
   });
 });
 
-describe('Sanpshoot of the Login page', () => {
+describe('Snapshoot of the Login page', () => {
   it('renders correctly', () => {
     const tree = renderer.create(
 

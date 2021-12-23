@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sanpshoot of the Reservation page renders correctly 1`] = `
+exports[`Snapshoot of the Reservation page renders correctly 1`] = `
 Array [
   <main
     style={

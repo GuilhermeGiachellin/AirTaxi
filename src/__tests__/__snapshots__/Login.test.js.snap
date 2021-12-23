@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sanpshoot of the Login page renders correctly 1`] = `
+exports[`Snapshoot of the Login page renders correctly 1`] = `
 <main
   style={
     Object {
