@@ -1,8 +1,4 @@
-/* eslint-disable camelcase */
-/* eslint-disable arrow-body-style */
-/* eslint-disable no-param-reassign */
 import {
-//   createEntityAdapter,
   createAsyncThunk,
   createSlice,
 } from '@reduxjs/toolkit';

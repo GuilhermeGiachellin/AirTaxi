@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { BiLeftArrow } from 'react-icons/bi';

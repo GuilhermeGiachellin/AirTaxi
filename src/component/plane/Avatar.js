@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { RiFacebookCircleLine, RiInstagramLine } from 'react-icons/ri';
 import { TiSocialTwitterCircular } from 'react-icons/ti';

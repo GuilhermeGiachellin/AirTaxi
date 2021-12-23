@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styles from './popup.module.scss';

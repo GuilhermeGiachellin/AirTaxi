@@ -1,12 +1,9 @@
-/* eslint-disable camelcase */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { ImArrowLeft } from 'react-icons/im';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import Calendar from 'react-calendar';
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 import {
   createReservations, fetchReservations, reset, selectAllReservations,
 } from '../../redux/slices/reservationsSlice';

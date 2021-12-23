@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 import { motion } from 'framer-motion';
-// import styles from './layoutStyle.module.scss';
 
 const animCollection = {
   swipeIn: {
@@ -24,17 +22,11 @@ const animCollection = {
     },
     exit: { opacity: 0 },
   },
-  // fallIn: {
-  //   initial: { y: -100, opacity: 0 },
-  //   animate: { y: 0, opacity: 1 },
-  //   exit: { y: 50, opacity: 0 },
-  // },
 };
 
 const Layout = ({ children, preAnimation }) => (
   <>
     <motion.main
-      // className={styles.mainContainer}
       initial="initial"
       animate="animate"
       exit="exit"
