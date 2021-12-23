@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sanpshoot of the Login page renders correctly 1`] = `
+<main
+  style={
+    Object {
+      "opacity": 0,
+      "transform": "none",
+    }
+  }
+>
+  <section
+    className="loginMainContainer"
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "flexDirection": "column",
+        "placeContent": "center",
+        "width": "100vw",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        style={Object {}}
+      >
+        <h1
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": "Righteous",
+              "fontSize": "3rem",
+            }
+          }
+        >
+           AIR TAXI 
+        </h1>
+      </div>
+      <button
+        className="selectionBtn"
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        Already have an account?
+      </button>
+    </div>
+  </section>
+</main>
+`;

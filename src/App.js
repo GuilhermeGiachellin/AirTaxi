@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import {
-  Routes, Route, useNavigate,
+  Routes, Route, useNavigate, Router,
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './assets/app.module.css';

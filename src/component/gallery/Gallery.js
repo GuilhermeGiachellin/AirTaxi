@@ -45,7 +45,7 @@ const Gallery = ({ itemList }) => {
         {' '}
       </motion.button>
       <div className={styles.header}>
-        <h2> Availible planes </h2>
+        <h2> Avaliable planes </h2>
         <p> Please pick a model </p>
         <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>
           {' '}
