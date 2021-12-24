@@ -1,6 +1,5 @@
 @import "../../assets/mixins.scss";
 
-
 @include small {
   .mainContainer {
     display: flex;
@@ -13,17 +12,17 @@
       flex-direction: column;
       align-items: center;
       height: 70vh;
-  
+
       h2 {
         font-size: 2rem;
         margin: 0;
       }
-  
+
       p {
         color: var(--second-font);
         margin: 0;
       }
-  
+
       .setContainer {
         opacity: 1;
         z-index: 1;
@@ -34,7 +33,7 @@
         align-items: baseline;
       }
     }
-  
+
     .roundedBtn {
       background-color: var(--color2);
       padding: 1rem 1rem 1rem 2rem;
@@ -51,7 +50,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-  
+
     .header {
       display: flex;
       flex-direction: column;
@@ -59,16 +58,16 @@
       align-items: center;
       position: relative;
       top: -80px;
-  
+
       h2 {
         font-size: 4rem;
         margin: 0;
       }
-  
+
       p {
         color: var(--second-font);
       }
-  
+
       .setContainer {
         opacity: 1;
         z-index: 1;
@@ -79,7 +78,7 @@
         align-items: baseline;
       }
     }
-  
+
     .roundedBtn {
       background-color: var(--color2);
       padding: 1rem 1rem 1rem 2rem;
