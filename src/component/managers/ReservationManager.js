@@ -9,7 +9,6 @@ import {
 } from '../../redux/slices/reservationsSlice';
 import style from './reservationManager.module.scss';
 import 'react-calendar/dist/Calendar.css';
-import './calendar.css';
 import ReservationList from '../reservation/ReservationList';
 import useToggle from '../customHooks/useToggle';
 import PopUp from '../popups/PopUp';
