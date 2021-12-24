@@ -19,6 +19,7 @@ const ReservationManager = () => {
   const { id } = useParams();
   const dates = useSelector((state) => selectAllReservations(state));
   const { status } = useSelector((state) => state.reservations);
+  const { entity: { data: { userId } } } = useSelector((state) => state.sessions);
   const [toggle, setToggle] = useToggle(['close', 'open']);
   const navigate = useNavigate();
   const icon = <ImArrowLeft size={30} />;
@@ -26,6 +27,11 @@ const ReservationManager = () => {
   const handleNavigation = () => {
     navigate('/main');
   };
+
+  // eslint-disable-next-line array-callback-return
+  const getCurrentUserReservations = () => dates.filter(
+    (date) => date.user_id === userId,
+  );
 
   const handleSubmit = async () => {
     if (value !== null) {
@@ -90,7 +96,7 @@ const ReservationManager = () => {
                 layout
               >
                 <ul>
-                  {dates.map((res) => (
+                  {getCurrentUserReservations().map((res) => (
                     <ReservationList key={res.id} data={res} />
                   ))}
                 </ul>
@@ -99,7 +105,7 @@ const ReservationManager = () => {
 
             </motion.div>
           </AnimateSharedLayout>
-          <button type="button" onClick={() => showReservations()} className={style.button}>Reserved dates</button>
+          <button type="button" onClick={() => { showReservations(); console.log(getCurrentUserReservations()); }} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
             <PopUp handleInput={handleReset} buttonMessage="Back to menu" message="Date Reserved!" skip={false} />
