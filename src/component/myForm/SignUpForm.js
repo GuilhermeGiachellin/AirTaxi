@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -25,19 +25,25 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { status } = useSelector((state) => state.sessions);
+
+  useEffect(() => {
+    if (status === 'logged') {
+      navigate('/main');
+    }
+  }, [status]);
+
   return (
-    <section className={styles.mainContainer}>
+    <section
+      className={styles.mainContainer}
+      style={{ backgroundColor: 'transparent' }}
+    >
       <Formik
         initialValues={{
           name: '', email: '', password: '', passwordConfirmation: '',
         }}
         validationSchema={SignUpSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            setSubmitting(false);
-            dispatch(signUp(values));
-            navigate('/main');
-          }, 400);
+        onSubmit={async (values) => {
+          await dispatch(signUp(values));
         }}
       >
         {({ isSubmitting }) => (

@@ -38,17 +38,13 @@ const Gallery = ({ itemList }) => {
         type="button"
         onClick={() => handleDir(-1)}
       >
-        {' '}
         <BiLeftArrow style={{ color: 'white', fontSize: '1.5rem' }} />
-        {' '}
       </motion.button>
       <div className={styles.header}>
         <h2> Avaliable planes </h2>
         <p> Please pick a model </p>
         <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-          {' '}
           {'.'.repeat(15) }
-          {' '}
         </p>
         <AnimatePresence exitBeforeEnter initial={false} custom={dir}>
           <motion.div
@@ -70,7 +66,6 @@ const Gallery = ({ itemList }) => {
                 details={plane}
               />
             ))}
-
           </motion.div>
         </AnimatePresence>
       </div>
@@ -80,9 +75,7 @@ const Gallery = ({ itemList }) => {
         type="button"
         onClick={() => handleDir(1)}
       >
-        {' '}
         <BiLeftArrow style={{ color: 'white', fontSize: '1.5rem' }} />
-        {' '}
       </motion.button>
     </div>
   );

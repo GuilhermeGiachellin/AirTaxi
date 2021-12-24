@@ -33,7 +33,10 @@ const LogInForm = () => {
   }, [status]);
 
   return (
-    <section className={styles.mainContainer}>
+    <section
+      className={styles.mainContainer}
+      style={{ backgroundColor: 'transparent' }}
+    >
       <Formik
         initialValues={{
           email: '', password: '',

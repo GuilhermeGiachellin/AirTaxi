@@ -3,7 +3,14 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 import { getAuthorizationCookie, setAuthorizationCookie } from '../../component/lib/CookieManager';
+
+const getIdFromToken = (token) => {
+  const { user: { id } } = jwt_decode(token);
+  setAuthorizationCookie('MyToken', token);
+  return id;
+};
 
 export const logIn = createAsyncThunk('api/login', async ({ email, password }) => {
   const response = await axios.post('https://air-taxi.herokuapp.com/api/login', {
@@ -15,6 +22,7 @@ export const logIn = createAsyncThunk('api/login', async ({ email, password }) =
   const { data } = response;
   const { headers: { authorization } } = response;
   setAuthorizationCookie('MyToken', authorization);
+  data.data.userId = getIdFromToken(authorization);
   return data;
 });
 
@@ -32,6 +40,7 @@ export const signUp = createAsyncThunk('api/signUp', async ({
   const { data } = response;
   const { headers: { authorization } } = response;
   setAuthorizationCookie('MyToken', authorization);
+  data.data.userId = getIdFromToken(authorization);
   return data;
 });
 
@@ -49,19 +58,26 @@ const sessionSlice = createSlice({
   name: 'sessions',
   initialState: {
     status: 'idle',
-    entities: [],
+    entity: null,
   },
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.status = 'idle';
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(logIn.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(logIn.fulfilled, (state, action) => {
-        state.entities = action.payload;
+        state.entity = action.payload;
         state.status = 'logged';
       })
       .addCase(logIn.rejected, (state) => {
+        state.status = 'error';
+      })
+      .addCase(signUp.rejected, (state) => {
         state.status = 'error';
       })
       .addCase(logOut.fulfilled, (state) => {
@@ -71,3 +87,4 @@ const sessionSlice = createSlice({
 });
 
 export default sessionSlice.reducer;
+export const { reset } = sessionSlice.actions;

@@ -9,7 +9,6 @@ import {
 } from '../../redux/slices/reservationsSlice';
 import style from './reservationManager.module.scss';
 import 'react-calendar/dist/Calendar.css';
-import './calendar.css';
 import ReservationList from '../reservation/ReservationList';
 import useToggle from '../customHooks/useToggle';
 import PopUp from '../popups/PopUp';
@@ -20,6 +19,7 @@ const ReservationManager = () => {
   const { id } = useParams();
   const dates = useSelector((state) => selectAllReservations(state));
   const { status } = useSelector((state) => state.reservations);
+  const { entity: { data: { userId } } } = useSelector((state) => state.sessions);
   const [toggle, setToggle] = useToggle(['close', 'open']);
   const navigate = useNavigate();
   const icon = <ImArrowLeft size={30} />;
@@ -27,6 +27,11 @@ const ReservationManager = () => {
   const handleNavigation = () => {
     navigate('/main');
   };
+
+  // eslint-disable-next-line array-callback-return
+  const getCurrentUserReservations = () => dates.filter(
+    (date) => date.user_id === userId,
+  );
 
   const handleSubmit = async () => {
     if (value !== null) {
@@ -67,7 +72,7 @@ const ReservationManager = () => {
               display: 'flex', gap: '2rem', alignItems: 'center', height: '400',
             }}
             >
-              { dates.length > 0 && (
+              { dates.length >= 0 && (
                 <motion.div layout>
                   <Calendar
                     onChange={onChange}
@@ -91,7 +96,7 @@ const ReservationManager = () => {
                 layout
               >
                 <ul>
-                  {dates.map((res) => (
+                  {getCurrentUserReservations().map((res) => (
                     <ReservationList key={res.id} data={res} />
                   ))}
                 </ul>
@@ -100,10 +105,10 @@ const ReservationManager = () => {
 
             </motion.div>
           </AnimateSharedLayout>
-          <button type="button" onClick={() => showReservations()} className={style.button}>Reserved dates</button>
+          <button type="button" onClick={() => { showReservations(); }} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
-            <PopUp handleInput={handleReset} message="Date Reserved!" skip={false} />
+            <PopUp handleInput={handleReset} buttonMessage="Back to menu" message="Date Reserved!" skip={false} />
           )}
           { status === 'error' && (
             <PopUp handleInput={handleReset} message="Date already reserved! :C" skip />
