@@ -51,7 +51,11 @@ const sessionSlice = createSlice({
     status: 'idle',
     entities: [],
   },
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.status = 'idle';
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(logIn.pending, (state) => {
@@ -64,6 +68,9 @@ const sessionSlice = createSlice({
       .addCase(logIn.rejected, (state) => {
         state.status = 'error';
       })
+      .addCase(signUp.rejected, (state) => {
+        state.status = 'error';
+      })
       .addCase(logOut.fulfilled, (state) => {
         state.status = 'out';
       });
@@ -71,3 +78,4 @@ const sessionSlice = createSlice({
 });
 
 export default sessionSlice.reducer;
+export const { reset } = sessionSlice.actions;

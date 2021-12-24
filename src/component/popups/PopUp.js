@@ -19,12 +19,16 @@ const PopUp = ({ handleInput, message, skip }) => {
           animate={{ y: 0, opacity: 1 }}
         >
           <h3>{message}</h3>
-          { handleInput && (
-            <button type="button" onClick={() => handleInput()}>Go to main</button>
-          )}
-
           {skip && (
-          <button type="button" onClick={() => setOpen(false)}>Close</button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              handleInput();
+            }}
+          >
+            Close
+          </button>
           )}
         </motion.div>
       </motion.div>

@@ -66,7 +66,7 @@ const ReservationManager = () => {
               display: 'flex', gap: '2rem', alignItems: 'center', height: '400',
             }}
             >
-              { dates.length > 0 && (
+              { dates.length >= 0 && (
                 <motion.div layout>
                   <Calendar
                     onChange={onChange}
@@ -102,7 +102,7 @@ const ReservationManager = () => {
           <button type="button" onClick={() => showReservations()} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
-            <PopUp handleInput={handleReset} message="Date Reserved!" skip={false} />
+            <PopUp handleInput={handleReset} message="Date Reserved!" skip />
           )}
           { status === 'error' && (
             <PopUp handleInput={handleReset} message="Date already reserved! :C" skip />
