@@ -70,7 +70,14 @@ const sessionSlice = createSlice({
       .addCase(logIn.pending, (state) => {
         state.status = 'loading';
       })
+      .addCase(signUp.pending, (state) => {
+        state.status = 'loading';
+      })
       .addCase(logIn.fulfilled, (state, action) => {
+        state.entity = action.payload;
+        state.status = 'logged';
+      })
+      .addCase(signUp.fulfilled, (state, action) => {
         state.entity = action.payload;
         state.status = 'logged';
       })
