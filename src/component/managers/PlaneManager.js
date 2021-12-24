@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Media from 'react-media';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlanes, selectAllPlanes } from '../../redux/slices/planesSlice';
 import Gallery from '../gallery/Gallery';
@@ -18,7 +19,12 @@ const PlaneManager = () => {
   return (
     <>
       {entities.length > 0 && (
-        <Gallery itemList={groupIn(3, entities)} />
+        <Media queries={{ small: { maxWidth: 420 } }}>
+          {(matches) => (matches.small
+            ? (<Gallery itemList={groupIn(1, entities)} />)
+            : (<Gallery itemList={groupIn(3, entities)} />)
+          )}
+        </Media>
       )}
     </>
   );
