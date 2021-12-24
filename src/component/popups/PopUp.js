@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styles from './popup.module.scss';
 
-const PopUp = ({ handleInput, message, skip }) => {
+const PopUp = ({
+  handleInput, message, skip, buttonMessage = 'Ok!',
+}) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -20,6 +22,14 @@ const PopUp = ({ handleInput, message, skip }) => {
         >
           <h3>{message}</h3>
           {skip && (
+            <button
+              type="button"
+              style={{ position: 'absolute', top: 0, right: 0 }}
+              onClick={() => setOpen(false)}
+            >
+              X
+            </button>
+          )}
           <button
             type="button"
             onClick={() => {
@@ -27,9 +37,8 @@ const PopUp = ({ handleInput, message, skip }) => {
               handleInput();
             }}
           >
-            Close
+            {buttonMessage}
           </button>
-          )}
         </motion.div>
       </motion.div>
       )}

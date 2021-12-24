@@ -102,7 +102,7 @@ const ReservationManager = () => {
           <button type="button" onClick={() => showReservations()} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
-            <PopUp handleInput={handleReset} message="Date Reserved!" skip />
+            <PopUp handleInput={handleReset} buttonMessage="Back to menu" message="Date Reserved!" skip={false} />
           )}
           { status === 'error' && (
             <PopUp handleInput={handleReset} message="Date already reserved! :C" skip />

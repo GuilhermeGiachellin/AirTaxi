@@ -40,7 +40,7 @@ const Login = () => {
         }}
       >
         { status === 'error' && (
-          <PopUp message="Wrong email or password!" handleInput={onReset} skip />
+          <PopUp message="Wrong email or password!" handleInput={onReset} skip={false} />
         )}
         <AnimateSharedLayout>
           <motion.div
