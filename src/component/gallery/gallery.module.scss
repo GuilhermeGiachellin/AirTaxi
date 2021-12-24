@@ -1,42 +1,90 @@
-.mainContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
+@import "../../assets/mixins.scss";
 
-  .header {
+@include small {
+  .mainContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: -80px;
+    justify-content: space-between;
+    height: 100%;
 
-    h2 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    p {
-      color: var(--second-font);
-    }
-
-    .setContainer {
-      opacity: 1;
-      z-index: 1;
-      width: 100%;
+    .header {
       display: flex;
-      justify-content: center;
-      gap: 5rem;
-      align-items: baseline;
+      flex-direction: column;
+      align-items: center;
+      height: 70vh;
+
+      h2 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      p {
+        color: var(--second-font);
+        margin: 0;
+      }
+
+      .setContainer {
+        opacity: 1;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        align-items: baseline;
+      }
+    }
+
+    .roundedBtn {
+      background-color: var(--color2);
+      padding: 1rem 1rem 1rem 2rem;
+      border-radius: 0 25px 25px 0;
+      border: none;
+      transition: 0.1s;
     }
   }
+}
 
-  .roundedBtn {
-    background-color: var(--color2);
-    padding: 1rem 1rem 1rem 2rem;
-    border-radius: 0 25px 25px 0;
-    border: none;
-    transition: 0.1s;
+@include desktop {
+  .mainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      top: -80px;
+
+      h2 {
+        font-size: 4rem;
+        margin: 0;
+      }
+
+      p {
+        color: var(--second-font);
+      }
+
+      .setContainer {
+        opacity: 1;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        align-items: baseline;
+      }
+    }
+
+    .roundedBtn {
+      background-color: var(--color2);
+      padding: 1rem 1rem 1rem 2rem;
+      border-radius: 0 25px 25px 0;
+      border: none;
+      transition: 0.1s;
+    }
   }
 }

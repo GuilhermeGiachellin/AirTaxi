@@ -2,11 +2,12 @@ import {
   AnimatePresence, AnimateSharedLayout, motion, useCycle,
 } from 'framer-motion';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginInForm from '../component/myForm/LogInForm';
 import SignUpForm from '../component/myForm/SignUpForm';
 import PopUp from '../component/popups/PopUp';
 import Layout from '../component/wrapper/Layout';
+import { reset } from '../redux/slices/sessionSlice';
 import styles from './pages.module.scss';
 
 const menuState = {
@@ -24,6 +25,11 @@ const menuState = {
 const Login = () => {
   const [toggle, setToggle] = useCycle('intro', 'login', 'signup');
   const { status } = useSelector((state) => state.sessions);
+  const dispatch = useDispatch();
+
+  const onReset = () => {
+    dispatch(reset());
+  };
 
   return (
     <Layout preAnimation="fadeIn">
@@ -34,7 +40,7 @@ const Login = () => {
         }}
       >
         { status === 'error' && (
-          <PopUp message="Wrong email or password!" skip />
+          <PopUp message="Wrong email or password!" handleInput={onReset} skip={false} />
         )}
         <AnimateSharedLayout>
           <motion.div
