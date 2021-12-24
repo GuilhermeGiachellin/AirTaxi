@@ -105,7 +105,7 @@ const ReservationManager = () => {
 
             </motion.div>
           </AnimateSharedLayout>
-          <button type="button" onClick={() => { showReservations(); console.log(getCurrentUserReservations()); }} className={style.button}>Reserved dates</button>
+          <button type="button" onClick={() => { showReservations(); }} className={style.button}>Reserved dates</button>
           <button type="button" onClick={() => handleSubmit()} className={style.button}>Book now</button>
           { status === 'created' && (
             <PopUp handleInput={handleReset} buttonMessage="Back to menu" message="Date Reserved!" skip={false} />
